@@ -3,6 +3,7 @@ import {
   AuthService,
   GoogleLoginProvider
 } from 'angular-6-social-login';
+import {UserServiceClient} from '../../services/user.service.client';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ import {
 export class LoginComponent implements OnInit {
   ngOnInit(): void {  }
 
-  constructor( private socialAuthService: AuthService ) {}
+  constructor( private socialAuthService: AuthService,
+               private userService: UserServiceClient) {}
 
   public socialSignIn() {
     let socialPlatformProvider;
@@ -23,9 +25,7 @@ export class LoginComponent implements OnInit {
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
         console.log("Google" + ' sign in data : ' , userData);
-        // Now sign-in with userData
-        // ...
-
+        this.userService.login({idToken: userData.idToken})
       }
     );
   }

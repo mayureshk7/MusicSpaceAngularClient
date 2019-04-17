@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import {SocialLoginModule, AuthServiceConfig, GoogleLoginProvider} from 'angular-6-social-login';
+import {UserServiceClient} from '../services/user.service.client';
 
 export function getAuthServiceConfigs() {
   const config = new AuthServiceConfig(
@@ -28,10 +29,13 @@ export function getAuthServiceConfigs() {
     AngularFontAwesomeModule,
     SocialLoginModule
   ],
-  providers: [{
-    provide: AuthServiceConfig,
-    useFactory: getAuthServiceConfigs
-  }],
+  providers: [
+    UserServiceClient,
+    {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
