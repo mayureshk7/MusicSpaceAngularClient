@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
               alert("Login unsuccessful")
             }
             else {
-              this.router.navigate(['user', user.userId, 'profile'])
+              this.router.navigate(['charts'])
             }
           })
       }

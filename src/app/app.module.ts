@@ -8,6 +8,9 @@ import { LoginComponent } from './login/login.component';
 import {SocialLoginModule, AuthServiceConfig, GoogleLoginProvider} from 'angular-6-social-login';
 import {UserServiceClient} from '../services/user.service.client';
 import { ProfileComponent } from './profile/profile.component';
+import { ChartsComponent } from './charts/charts.component';
+import {ChartsServiceClient} from '../services/charts.service.client';
+
 
 export function getAuthServiceConfigs() {
   const config = new AuthServiceConfig(
@@ -23,7 +26,8 @@ export function getAuthServiceConfigs() {
   declarations: [
     AppComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +37,7 @@ export function getAuthServiceConfigs() {
   ],
   providers: [
     UserServiceClient,
+    ChartsServiceClient,
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs

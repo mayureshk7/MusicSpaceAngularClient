@@ -2,9 +2,11 @@
 import { Routes, RouterModule } from '@angular/router';
 import {ProfileComponent} from './profile/profile.component';
 import {LoginComponent} from './login/login.component';
+import {ChartsComponent} from './charts/charts.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
+  {path: 'charts', component: ChartsComponent},
   {path: 'user/:userId/profile', component: ProfileComponent},
 ];
 
