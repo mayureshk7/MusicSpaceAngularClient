@@ -2,12 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRouting } from './app.routing';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import {SocialLoginModule, AuthServiceConfig, GoogleLoginProvider} from 'angular-6-social-login';
 import {UserServiceClient} from '../services/user.service.client';
-import { GoogleSigninComponent } from './google-signin/google-signin.component';
+import { ProfileComponent } from './profile/profile.component';
 
 export function getAuthServiceConfigs() {
   const config = new AuthServiceConfig(
@@ -23,11 +23,11 @@ export function getAuthServiceConfigs() {
   declarations: [
     AppComponent,
     LoginComponent,
-    GoogleSigninComponent
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRouting,
     AngularFontAwesomeModule,
     SocialLoginModule
   ],

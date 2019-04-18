@@ -4,6 +4,7 @@ import {
   GoogleLoginProvider
 } from 'angular-6-social-login';
 import {UserServiceClient} from '../../services/user.service.client';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {  }
 
   constructor( private socialAuthService: AuthService,
-               private userService: UserServiceClient) {}
+               private userService: UserServiceClient,
+               private router: Router) {}
 
   public socialSignIn() {
     let socialPlatformProvider;
@@ -25,7 +27,16 @@ export class LoginComponent implements OnInit {
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
         console.log("Google" + ' sign in data : ' , userData);
-        this.userService.login({idToken: userData.idToken})
+        this.userService.googlelogin({idToken: userData.idToken})
+          .then((user) => {
+            console.log(user)
+            if(user === {} || user === undefined) {
+              alert("Login unsuccessful")
+            }
+            else {
+              this.router.navigate(['user', user.userId, 'profile'])
+            }
+          })
       }
     );
   }
