@@ -7,7 +7,7 @@ import {ChartsComponent} from './charts/charts.component';
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'charts', component: ChartsComponent},
-  {path: 'user/:userId/profile', component: ProfileComponent},
+  {path: 'profile', component: ProfileComponent},
 ];
 
 export const AppRouting = RouterModule.forRoot(routes);
