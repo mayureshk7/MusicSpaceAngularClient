@@ -19,11 +19,6 @@ export class ChartsComponent implements OnInit {
         console.log("artists", artists)
         this.artists=artists
       })
-    this.chartsService.getTopTracks()
-      .then(tracks => {
-        console.log(tracks)
-        this.tracks = tracks
-      })
   }
 
 }

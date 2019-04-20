@@ -1,27 +1,9 @@
+<ul *ngFor="let artist of artists">
+  <ol>
+    <img src={{artist.smallImage}}>
+    {{artist.name}}
+    <a href={{artist.fmUrl}}>Click to play</a>
 
-<div class="container-fluid">
-<!--  <div class="col-md-6">-->
-<!--  <ul *ngFor="let artist of artists">-->
-<!--    <ol>-->
-<!--      <img src={{artist.smallImage}}>-->
-<!--      {{artist.name}}-->
-<!--      <a href={{artist.fmUrl}}>Click to play</a>-->
+  </ol>
 
-<!--    </ol>-->
-
-<!--  </ul>-->
-<!--  </div>-->
-
-  <div class="col-md-6">
-  <ul *ngFor="let track of tracks">
-    <ol>
-      <img src={{track.image[0]["#text"]}}>
-      {{track.name}}
-      <a href={{track.url}}>Click to play</a>
-
-    </ol>
-
-  </ul>
-  </div>
-
-</div>
+</ul>
