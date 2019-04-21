@@ -10,6 +10,8 @@ import {UserServiceClient} from '../services/user.service.client';
 import { ProfileComponent } from './profile/profile.component';
 import { ChartsComponent } from './charts/charts.component';
 import {ChartsServiceClient} from '../services/charts.service.client';
+import { SongsComponent } from './songs/songs.component';
+import { HomeComponent } from './home/home.component';
 
 
 export function getAuthServiceConfigs() {
@@ -27,7 +29,9 @@ export function getAuthServiceConfigs() {
     AppComponent,
     LoginComponent,
     ProfileComponent,
-    ChartsComponent
+    ChartsComponent,
+    SongsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
