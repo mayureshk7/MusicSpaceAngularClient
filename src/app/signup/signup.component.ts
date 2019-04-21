@@ -17,20 +17,22 @@ export class SignupComponent implements OnInit {
     cpwd: '',
     type: ''
   };
-  createUser = usr =>
+  createUser = usr => {
     this.user = usr;
+  this.service.signup(this.user)
+.then(user => {
+  if(typeof user === "string") {
+  this.user = JSON.parse(user)
+    console.log(this.user)
+}
+else {
+  alert("Something went wrong, try again")
+}
+});
+  }
 
   ngOnInit() {
-    this.service
-      .signup(this.user)
-      .then(user => {
-        if(typeof user === "string") {
-          this.user = JSON.parse(user)
-        }
-        else {
-          alert("Something went wrong, try again")
-        }
-      });
+
   }
 
 }

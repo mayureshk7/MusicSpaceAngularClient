@@ -13,13 +13,13 @@
     <div>
       <div class="mt-5 mr-3 ml-3 mb-3">
         <h5 class="title-text m-1"><i class="fa fa-user-o mr-3" aria-hidden="true"></i>Username</h5>
-        <input class="form-control m-1" placeholder="Alice" [(ng-model)]="user.usrName">
+        <input class="form-control m-1" placeholder="Alice" [(ngModel)]="user.usrName">
         <h5 class="title-text m-1"><i class="fa fa-envelope-square mr-3" aria-hidden="true"></i>Email</h5>
-        <input class="form-control m-1" placeholder="Alice@gmail.com" [(ng-model)]="user.email">
+        <input class="form-control m-1" placeholder="Alice@gmail.com" [(ngModel)]="user.email">
         <h5 class="title-text m-1"><i class="fa fa-key mr-3" aria-hidden="true"></i>Password</h5>
-        <input class="form-control m-1" placeholder="*******" [(ng-model)]="user.pwd">
+        <input class="form-control m-1" placeholder="*******" type="password" [(ngModel)]="user.pwd">
         <h5 class="title-text m-1"><i class="fa fa-key mr-3" aria-hidden="true"></i>Confirm Password</h5>
-        <input class="form-control m-1" placeholder="*******" [(ng-model)]="user.cpwd">
+        <input class="form-control m-1" placeholder="*******"  type="password" [(ngModel)]="user.cpwd">
 
         <h5 class="title-text m-1"><i class="fa fa-id-badge mr-3" aria-hidden="true" ></i>I am a </h5>
         <select class="form-control">
