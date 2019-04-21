@@ -4,7 +4,7 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class ChartsServiceClient {
 
-  getTopArtists = () => fetch('http://localhost:8080/api/artists/top', {
+  getTopArtists = () => fetch('https://sp19-s1-project-server-java.herokuapp.com/api/artists/top', {
     method : 'get',
     credentials: "include",
     headers: {

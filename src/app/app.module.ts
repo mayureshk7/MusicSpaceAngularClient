@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppRouting } from './app.routing';
@@ -10,6 +11,8 @@ import {UserServiceClient} from '../services/user.service.client';
 import { ProfileComponent } from './profile/profile.component';
 import { ChartsComponent } from './charts/charts.component';
 import {ChartsServiceClient} from '../services/charts.service.client';
+import { SignupComponent } from './signup/signup.component';
+
 
 
 export function getAuthServiceConfigs() {
@@ -27,13 +30,15 @@ export function getAuthServiceConfigs() {
     AppComponent,
     LoginComponent,
     ProfileComponent,
-    ChartsComponent
+    ChartsComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRouting,
     AngularFontAwesomeModule,
-    SocialLoginModule
+    SocialLoginModule,
+    FormsModule
   ],
   providers: [
     UserServiceClient,
