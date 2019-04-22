@@ -26,4 +26,26 @@ export class ChartsServiceClient {
       'content-type': 'application/json'
     }
   }).then(response => response.json())
+
+  getSearchResults = (type, query) => {
+    if(type == "artists"){
+       return fetch('https://sp19-s1-project-server-java.herokuapp.com/api/artists/search?query='+ query, {
+        method : 'get',
+        credentials: "include",
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
+        .then(response => response.json())
+    }else if(type == "tracks"){
+      return fetch('https://sp19-s1-project-server-java.herokuapp.com/api/tracks/search?query=' + query, {
+        method : 'get',
+        credentials: "include",
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
+        .then(response => response.json())
+    }
+  }
 }

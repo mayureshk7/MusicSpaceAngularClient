@@ -12,6 +12,8 @@ import { ChartsComponent } from './charts/charts.component';
 import {ChartsServiceClient} from '../services/charts.service.client';
 import { SongsComponent } from './songs/songs.component';
 import { HomeComponent } from './home/home.component';
+import { SearchComponent } from './search/search.component';
+import {FormsModule} from '@angular/forms';
 
 
 export function getAuthServiceConfigs() {
@@ -31,13 +33,15 @@ export function getAuthServiceConfigs() {
     ProfileComponent,
     ChartsComponent,
     SongsComponent,
-    HomeComponent
+    HomeComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     AppRouting,
     AngularFontAwesomeModule,
-    SocialLoginModule
+    SocialLoginModule,
+    FormsModule
   ],
   providers: [
     UserServiceClient,

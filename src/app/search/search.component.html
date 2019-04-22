@@ -1,0 +1,83 @@
+<body class="bg">
+<div class="container-fluid">
+  <div class="row title-bar p-2">
+    <div class="row col-6">
+      <i class="fa fa-grav fa-3x fa-spin mr-2 ml-2"></i>
+      <h2 class="title-text mt-1 mb-1 ml-3 mr-3">Record Space</h2>
+    </div>
+    <div class=" offset-1 col-5 row">
+      <button class="btn m-1 "><i class="fa fa-home" aria-hidden="true"></i>  Home</button>
+      <div class="vl"></div>
+      <button class="btn  m-1 "><i class="fa fa-dashboard" aria-hidden="true"></i>  Dashboard</button>
+      <div class="vl"></div>
+      <button class="btn m-1 "><i class="fa fa-user" aria-hidden="true"></i>  Profile</button>
+      <div class="vl"></div>
+      <button class="btn m-1 "><i class="fa fa-space-shuttle" aria-hidden="true"></i>  Explore</button>
+      <div class="vl"></div>
+      <button class="btn m-1"><i class="fa fa-sign-out fa-lg"></i> </button>
+
+    </div>
+  </div>
+
+  <div class="offset-1 col-10 mt-3 mb-3 title-bar">
+
+    <div class="row col-10 offset-1 pt-2 pr-2 pl-2 pb-2">
+      <div class="col-8" >
+        <input [(ngModel)]="query.search" class="form-control" placeholder="Search">
+      </div>
+      <div class="col-2">
+        <select class="browser-default custom-select" [(ngModel)]="query.type">
+          <option value="artists">Artists</option>
+          <option value="tracks">Tracks</option>
+          <option value="concert">Concerts</option>
+        </select>
+      </div>
+      <div class="col-2">
+        <button class="btn btn-success btn-block" (click)='search()'><i class="fa fa-search"></i> Search</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="offset-1 col-10 mt- mb-3 title-bar" [ngSwitch]="searchType">
+    <div *ngSwitchCase="'tracks'">
+      <h2 class="mt-3 mb-3 pt-3 p-2"><i class="fa fa-music" aria-hidden="true"></i> Search Results for {{searchString}}</h2>
+      <div class="card-deck m-2 p-2">
+        <div *ngFor="let track of searchResults" class="col-6 m-0">
+          <div class="card m-2">
+            <div class="row">
+              <div class="col-4">
+                  <img class="card-img-top img-fluid artistImage" src="{{track.image[2]['#text']}}" alt="No image available">
+              </div>
+              <div class="col-6 m-2">
+                <h4>{{track.name}}</h4>
+                <h5>{{track.artist}}</h5>
+              </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="'artists'">
+      <h2 class="mt-3 mb-3 pt-3 p-2"><i class="fa fa-user" aria-hidden="true"></i> Search Results for {{searchString}}</h2>
+      <div class="card-deck m-2 scrollable">
+        <div *ngFor="let artist of searchResults" class="col-6 m-0">
+          <div class="card m-2 p-2">
+            <div class="row">
+              <div class="col-4">
+                <img class="card-img-top img-fluid artistImage" src="{{artist.largeImage}}" alt="No image available">
+              </div>
+              <div class="col-6 m-2">
+                <h4>{{artist.name}}</h4>
+                <h4><i class="fa fa-users" aria-hidden="true"> Followers: {{artist.listeners}}</i></h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+</body>

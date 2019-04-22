@@ -23,18 +23,17 @@
 
     <div class="row col-10 offset-1 pt-2 pr-2 pl-2 pb-2">
       <div class="col-8" >
-        <input class="form-control" placeholder="Search">
+        <input [(ngModel)]="query.search" class="form-control" placeholder="Search">
       </div>
       <div class="col-2">
-        <select class="browser-default custom-select">
-          <option value="album" selected>Album</option>
-          <option value="artist">Artist</option>
-          <option value="song">Song</option>
-          <option value="concert">Concert</option>
+        <select class="browser-default custom-select" [(ngModel)]="query.type">
+          <option value="artists">Artists</option>
+          <option value="tracks">Tracks</option>
+          <option value="concert">Concerts</option>
         </select>
       </div>
       <div class="col-2">
-        <button class="btn btn-success btn-block"><i class="fa fa-search"></i> Search</button>
+        <button class="btn btn-success btn-block" (click)='search()'><i class="fa fa-search"></i> Search</button>
       </div>
     </div>
   </div>
