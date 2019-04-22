@@ -14,6 +14,7 @@ import { SongsComponent } from './songs/songs.component';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 import {FormsModule} from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
 
 
 export function getAuthServiceConfigs() {
@@ -34,7 +35,8 @@ export function getAuthServiceConfigs() {
     ChartsComponent,
     SongsComponent,
     HomeComponent,
-    SearchComponent
+    SearchComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
