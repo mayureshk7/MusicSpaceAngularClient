@@ -6,6 +6,7 @@ import {ChartsComponent} from './charts/charts.component';
 import {SongsComponent} from './songs/songs.component';
 import {HomeComponent} from './home/home.component';
 import {SearchComponent} from './search/search.component';
+import {ArtistpageComponent} from './artistpage/artistpage.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -14,8 +15,7 @@ const routes: Routes = [
   {path: 'songs', component: SongsComponent},
   {path: 'home', component: HomeComponent},
   {path: 'search/:type/:query', component: SearchComponent},
-
-
+  {path: 'artist', component: ArtistpageComponent},
 ];
 
 export const AppRouting = RouterModule.forRoot(routes);

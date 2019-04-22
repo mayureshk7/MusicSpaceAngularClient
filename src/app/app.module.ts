@@ -15,6 +15,8 @@ import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 import {FormsModule} from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
+import { ArtistpageComponent } from './artistpage/artistpage.component';
+import {SafePipe} from './safe.pipe';
 
 
 export function getAuthServiceConfigs() {
@@ -36,7 +38,9 @@ export function getAuthServiceConfigs() {
     SongsComponent,
     HomeComponent,
     SearchComponent,
-    HeaderComponent
+    HeaderComponent,
+    ArtistpageComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
