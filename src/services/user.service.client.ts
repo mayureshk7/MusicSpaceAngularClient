@@ -23,7 +23,7 @@ export class UserServiceClient {
     }).then(response => response.json());
   }
 
-  signup = (user) => fetch('https://sp19-s1-project-server-java.herokuapp.com/api/signup', {
+  signup = (user) => fetch('http://localhost:8080/api/signup', {
     method: 'post',
     body: JSON.stringify(user),
     credentials: 'include',
