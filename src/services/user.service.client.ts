@@ -36,5 +36,9 @@ export class UserServiceClient {
   })
   .then(response => JSON.stringify(response))
     .catch(error => console.log(error))
-  }
 
+  findUserProfileByUserName = (uname) => fetch
+  (`https://sp19-s1-project-server-java.herokuapp.com/api/user/${uname}/profile`)
+    .then(response => response.json())
+
+}

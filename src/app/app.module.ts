@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppRouting } from './app.routing';
@@ -38,7 +38,8 @@ export function getAuthServiceConfigs() {
     AppRouting,
     AngularFontAwesomeModule,
     SocialLoginModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     UserServiceClient,

@@ -11,11 +11,13 @@ export class SignupComponent implements OnInit {
 
   constructor(private service: UserServiceClient) { }
   user = {
-    usrName: '',
-    email: '',
-    pwd: '',
-    cpwd: '',
-    type: ''
+    usrName: 'MickyMouse',
+    frstName: 'Micky',
+    lstName: 'Mouse',
+    address: 'Disney',
+    city: 'Animation',
+    country: 'Cartoon',
+    bio: 'hi i am micky'
   };
   createUser = () => {
     this.service
