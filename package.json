@@ -1,5 +1,5 @@
 {
-  "name": "web-dev-project-client",
+  "name": "wb-sp19-pallav-gupta-client-angular",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -23,7 +23,6 @@
     "angular-font-awesome": "^3.1.2",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
-    "font-awesome": "^4.7.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
