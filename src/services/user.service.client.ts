@@ -32,12 +32,7 @@ export class UserServiceClient {
     headers: {
       'content-type': 'application/json'
     }
-  }).then(response => {
-    console.log(response.json());
-    return response.json()
-  })
-  .then(response => JSON.stringify(response))
-    .catch(error => console.log(error))
+  }).then(response => response.json())
 
 /*  findUserProfileByUserName = (uname) => fetch
   (`https://sp19-s1-project-server-java.herokuapp.com/api/user/${uname}/profile`)
