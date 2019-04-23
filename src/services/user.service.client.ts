@@ -23,7 +23,7 @@ export class UserServiceClient {
     }).then(response => response.json());
   }
 
-  signup = (user) => fetch('http://localhost:8080/api/signup', {
+  signup = (user) => fetch('https://sp19-s1-project-server-java.herokuapp.com/api/signup', {
     method: 'post',
     body: JSON.stringify(user),
     credentials: 'include',
@@ -37,8 +37,21 @@ export class UserServiceClient {
   .then(response => JSON.stringify(response))
     .catch(error => console.log(error))
 
-  findUserProfileByUserName = (uname) => fetch
+/*  findUserProfileByUserName = (uname) => fetch
   (`https://sp19-s1-project-server-java.herokuapp.com/api/user/${uname}/profile`)
-    .then(response => response.json())
+    .then(response => response.json())*/
+
+  updateUserProfile = (usr) => {
+    console.log(usr)
+    return fetch('https://sp19-s1-project-server-java.herokuapp.com/api/profile', {
+      method: 'put',
+      body: JSON.stringify(usr),
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json())
+
+  }
 
 }
