@@ -13,12 +13,19 @@
         <h3><i class="fa fa-users" aria-hidden="true"> Followers: {{artist.stats.listeners}}</i></h3>
         <h3><i class="fa fa-headphones" aria-hidden="true"> PlayCount: {{artist.stats.playcount}}</i></h3>
 
-        <div *ngIf="followUnfollow">
-          <button class="btn btn-success" (click)='followArtist()'>Follow   <i class="fa fa-user-plus"></i></button>
+        <div *ngIf="isLoggedIn">
+          <div *ngIf="followUnfollow">
+            <button class="btn btn-success" (click)='followArtist()'>Follow   <i class="fa fa-user-plus"></i></button>
+          </div>
+          <div *ngIf="!followUnfollow">
+            <button class="btn btn-success" (click)='followArtist()'> Unfollow   <i class="fa fa-user-times"></i></button>
+          </div>
         </div>
-        <div *ngIf="!followUnfollow">
-          <button class="btn btn-success" (click)='followArtist()'> Unfollow   <i class="fa fa-user-times"></i></button>
+        <div *ngIf="!isLoggedIn">
+          <button class="btn btn-success" [routerLink]="['/']">Sign In to start following &nbsp;<i class="fa fa-user-plus"></i></button>
         </div>
+
+
         <!--follow unfollow {{devanshi}}-->
         <!--<button class="btn btn-success" (click)='followArtist()'><i class="fa fa-user-plus"></i></button>-->
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserServiceClient} from '../../services/user.service.client';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-profile',
@@ -25,7 +26,7 @@ export class ProfileComponent implements OnInit {
 
   userName: string;
 
-  constructor(private userService: UserServiceClient) {
+  constructor(private userService: UserServiceClient, private cookieService: CookieService, private router: Router) {
   }
 
   updateUser = () => {
@@ -41,10 +42,17 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnInit() {
-    this.userService.profile()
-      .then(user => {
-        this.user = user
-      })
+    if(this.cookieService.check('isLoggedIn') && this.cookieService.get('isLoggedIn') === 'true') {
+      this.userService.profile()
+        .then(user => {
+          this.user = user
+        })
+    }
+    else {
+      alert("Please Sign In first")
+      this.router.navigate([''])
+    }
+
   }
 
 }

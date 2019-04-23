@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class UserServiceClient {
 
-  baseUrl = "https://sp19-s1-project-server-java.herokuapp.com"
+  baseUrl = "http://localhost:8080"
 
   googlelogin = (user) => fetch(this.baseUrl+'/api/googleLogin', {
     method : 'post',
@@ -65,4 +65,8 @@ export class UserServiceClient {
     method : 'get',
     credentials: 'include'
   }).then(response => response.json())
+
+  logout = () => fetch(this.baseUrl + `/api/users/logout`)
+    .then(response => response.json())
+
 }

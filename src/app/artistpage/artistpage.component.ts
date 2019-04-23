@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ArtistServiceClient} from '../../services/artist.service.client';
 import {Router, ActivatedRoute} from '@angular/router';
 import {UserServiceClient} from '../../services/user.service.client';
+import {CookieService} from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-artistpage',
@@ -16,15 +18,21 @@ export class ArtistpageComponent implements OnInit {
   artist: any;
   albums: any;
   idOrMbId: string;
+  isLoggedIn: boolean;
   constructor(private artistService: ArtistServiceClient,
               private activatedRoute: ActivatedRoute,
-              private userService: UserServiceClient) { }
+              private userService: UserServiceClient,
+              private cookieService: CookieService) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.idOrMbId = params['artistId'];
     });
 
+    if (this.cookieService.check("isLoggedIn") && this.cookieService.get("isLoggedIn") === 'true') {
+      this.isLoggedIn = true;
+    }
+    else this.isLoggedIn = false;
     this.artistService.getArtist(this.idOrMbId)
       .then(artist => {
         console.log("artists", artist)

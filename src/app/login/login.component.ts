@@ -5,6 +5,7 @@ import {
 } from 'angular-6-social-login';
 import {UserServiceClient} from '../../services/user.service.client';
 import {Router} from '@angular/router';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor( private socialAuthService: AuthService,
                private userService: UserServiceClient,
-               private router: Router) {}
+               private router: Router,
+               private cookieService: CookieService) {}
 
   public socialSignIn() {
     let socialPlatformProvider;
@@ -34,6 +36,7 @@ export class LoginComponent implements OnInit {
               alert("Login unsuccessful")
             }
             else {
+              this.cookieService.set("isLoggedIn", 'true')
               this.router.navigate(['home'])
             }
           })
