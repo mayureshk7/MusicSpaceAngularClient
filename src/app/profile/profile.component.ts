@@ -23,24 +23,14 @@ export class ProfileComponent implements OnInit {
     bio: 'Hi I am Micky Mouse. I am the cutest.'
   }
 
-  userName: string;
-  constructor(private userService: UserServiceClient, private activatedRoute: ActivatedRoute) {  }
+  constructor(private userService: UserServiceClient) {  }
 
   ngOnInit() {
-    console.log("onInit called")
-    this.activatedRoute.params
-      .subscribe(params => {
-        this.userName = params.userName;
-      })
-
-/*    this.userService.profile()
+    this.userService.profile()
       .then(user => {
         console.log("User Profile",user);
         this.user = user
-      })*/
-
-    this.userService.findUserProfileByUserName(this.userName)
-      .then(user => this.user = user)
+      })
   }
 
 }
