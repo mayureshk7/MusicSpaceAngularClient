@@ -11,18 +11,16 @@ export class TrackComponent implements OnInit {
 
   track: any
   artist: string;
-  track: string;
+  trackName: string;
   constructor(private trackService: TrackServiceClient, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.artist = params['artist'];
-      this.track = params['track'];
+      this.trackName = params['track'];
     });
 
-    alert(this.artist+" "+this.track)
-
-    this.trackService.findTrackByDetails(this.artist, this.track)
+    this.trackService.findTrackByDetails(this.artist, this.trackName)
       .then(track => {
       console.log('track', track)
       this.track = track;
