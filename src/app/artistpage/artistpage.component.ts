@@ -13,7 +13,7 @@ export class ArtistpageComponent implements OnInit {
 
 /*  textChange : String = 'follow';*/
   followUnfollow = true;
-  artist : any;
+  artist: any;
   idOrMbId: string;
   constructor(private artistService: ArtistServiceClient,
               private activatedRoute: ActivatedRoute,

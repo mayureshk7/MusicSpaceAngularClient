@@ -9,6 +9,7 @@ import {HomeComponent} from './home/home.component';
 import {SearchComponent} from './search/search.component';
 import {ArtistpageComponent} from './artistpage/artistpage.component';
 import {FallbackComponent} from './fallback/fallback.component';
+import {TrackComponent} from './track/track.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: 'artist/:artistId', component: ArtistpageComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'fallback', component: FallbackComponent}
+  {path: 'fallback', component: FallbackComponent},
+  {path: 'artists/:artist/tracks/:track', component: TrackComponent}
 ];
 
 export const AppRouting = RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'});

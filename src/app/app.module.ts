@@ -22,6 +22,8 @@ import {ArtistServiceClient} from '../services/artist.service.client';
 import { FallbackComponent } from './fallback/fallback.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import {RouterModule} from '@angular/router';
+import { TrackComponent } from './track/track.component';
+import {TrackServiceClient} from "../services/track.service.client";
 
 
 export function getAuthServiceConfigs() {
@@ -49,7 +51,8 @@ export function getAuthServiceConfigs() {
     ChartsComponent,
     SignupComponent,
     FallbackComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    TrackComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +66,7 @@ export function getAuthServiceConfigs() {
     UserServiceClient,
     ChartsServiceClient,
     ArtistServiceClient,
+    TrackServiceClient,
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs

@@ -1,10 +1,16 @@
 import {Injectable} from '@angular/core';
 
-const baseUrl = 'http://localhost:8080'
+const baseUrl = 'https://sp19-s1-project-server-java.herokuapp.com'
 @Injectable()
 export class TrackServiceClient {
 
-  // findTrackByMId = () => fetch(baseUrl+'/api/artists/')
+  findTrackByDetails = (artist, track) => fetch('https://sp19-s1-project-server-java.herokuapp.com/api/artists/' + artist + '/tracks/' + track , {
+    method : 'get',
+    credentials: "include",
+    headers: {
+      'content-type': 'application/json'
+    }
+  }).then(response => response.json())
 
   // getTopArtists = () => fetch('http://localhost:8080/api/artists/top', {
   //   method : 'get',

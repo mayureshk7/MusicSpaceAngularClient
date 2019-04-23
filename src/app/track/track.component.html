@@ -1,0 +1,44 @@
+<body class="bg">
+<div class="container-fluid">
+  <app-header></app-header>
+
+  <div class="offset-1 col-10 mt-3 mb-3 title-bar">
+    <div class="row">
+      <div class="col-3 m-2">
+        <img class="artistImage" src="{{track.track.album.image[2]['#text']}}">
+      </div>
+      <div class="col-5 m-2 mt-3">
+        <h1>{{track.track.name}}</h1>
+        <h3>{{track.track.album.artist}}</h3>
+        <h3>{{track.track.album.title}}</h3>
+        <hr width="50%">
+        <h4><i class="fa fa-users" aria-hidden="true"> Followers: {{track.track.listeners}}</i></h4>
+        <h4><i class="fa fa-headphones" aria-hidden="true"> PlayCount: {{track.track.playcount}}</i></h4>
+        <hr width="50%">
+        <div class="row ml-1">
+          <div *ngFor="let tag of track.track.toptags.tag">
+            <button class="btn btn-primary btn-sm m-1"><h6>{{tag.name}}</h6></button>
+          </div>
+        </div>
+        <!--
+        <div *ngIf="followUnfollow">
+          <button class="btn btn-success" (click)='followArtist()'>Follow   <i class="fa fa-user-plus"></i></button>
+        </div>
+        <div *ngIf="!followUnfollow">
+          <button class="btn btn-success" (click)='followArtist()'> Unfollow   <i class="fa fa-user-times"></i></button>
+        </div>
+        <!--follow unfollow {{devanshi}}-->
+        <!--<button class="btn btn-success" (click)='followArtist()'><i class="fa fa-user-plus"></i></button>-->
+      </div>
+    </div>
+  </div>
+
+  <div class="offset-1 pt-2 col-10 mt-3 mb-3 title-bar">
+    <h3 >About {{track.track.name}}</h3>
+    <hr>
+    <h5>{{track.track.wiki.content}}</h5>
+    <hr>
+  </div>
+
+</div>
+</body>
