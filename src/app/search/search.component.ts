@@ -17,9 +17,15 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
 
-    this.activatedRoute.params.subscribe(params => console.log(params))
+    // this.activatedRoute.params.subscribe(params => console.log(params))
+    //
+    // this.activatedRoute.queryParams.subscribe(params => console.log(params))
 
-    this.activatedRoute.queryParams.subscribe(params => console.log(params))
+    this.activatedRoute.params.subscribe(params => this.searchType = params['type'])
+    this.activatedRoute.queryParams.subscribe(params => this.query = params['query'])
+
+    this.chartsService.getSearchResults(this.searchType, this.query)
+      .then(results => this.searchResults = results)
 
   //   this.readUrlParams((routeParams, queryParams) => {
   //     this.query = queryParams.query
