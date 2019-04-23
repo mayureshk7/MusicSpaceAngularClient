@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'songs', component: SongsComponent},
   {path: 'home', component: HomeComponent},
   {path: 'search/:type/:query', component: SearchComponent},
-  {path: 'artist', component: ArtistpageComponent},
+  {path: 'artist/:artistId', component: ArtistpageComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'signup', component: SignupComponent}
 ];

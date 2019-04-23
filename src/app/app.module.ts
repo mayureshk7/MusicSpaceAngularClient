@@ -18,6 +18,7 @@ import { HeaderComponent } from './header/header.component';
 import { ArtistpageComponent } from './artistpage/artistpage.component';
 import {SafePipe} from './safe.pipe';
 import {SignupComponent} from './signup/signup.component';
+import {ArtistServiceClient} from '../services/artist.service.client';
 
 
 export function getAuthServiceConfigs() {
@@ -56,6 +57,7 @@ export function getAuthServiceConfigs() {
   providers: [
     UserServiceClient,
     ChartsServiceClient,
+    ArtistServiceClient,
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs

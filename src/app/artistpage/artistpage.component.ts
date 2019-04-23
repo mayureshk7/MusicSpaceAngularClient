@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ChartsServiceClient} from '../../services/charts.service.client';
+import {ArtistServiceClient} from '../../services/artist.service.client';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-artistpage',
@@ -10,13 +11,20 @@ import {ChartsServiceClient} from '../../services/charts.service.client';
 export class ArtistpageComponent implements OnInit {
 
   artist : any;
-  constructor(private chartsService: ChartsServiceClient) { }
+  idOrMbId: string;
+  constructor(private artistService: ArtistServiceClient,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.chartsService.getArtist()
+    this.activatedRoute.params.subscribe(params => {
+      this.idOrMbId = params['artistId'];
+    });
+
+    this.artistService.getArtist(this.idOrMbId)
       .then(artist => {
         console.log("artists", artist)
         this.artist=artist
+        console.log(this.artist.name)
       })
   }
 

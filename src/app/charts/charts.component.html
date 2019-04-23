@@ -13,7 +13,7 @@
           </div>
           <i class="fa fa-users" aria-hidden="true"> Followers: {{artist.listeners}}</i>
           <i class="fa fa-headphones" aria-hidden="true"> PlayCount: {{artist.playCount}}</i>
-          <button class="btn btn-sm btn-block btn-success mt-2"><i class="fa fa-grav fa-2x"> Explore</i></button>
+          <button class="btn btn-sm btn-block btn-success mt-2" (click)="getArtist(artist.id, artist.mbid)"><i class="fa fa-grav fa-2x"> Explore</i></button>
         </div>
       </div>
     </div>

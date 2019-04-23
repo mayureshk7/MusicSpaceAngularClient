@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ChartsServiceClient} from '../../services/charts.service.client';
 
+import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-charts',
   templateUrl: './charts.component.html',
@@ -8,10 +10,10 @@ import {ChartsServiceClient} from '../../services/charts.service.client';
 })
 export class ChartsComponent implements OnInit {
 
-  tracks: any;
   artists: any;
 
-  constructor(private chartsService: ChartsServiceClient) { }
+  constructor(private chartsService: ChartsServiceClient,
+              private router: Router) { }
 
   ngOnInit() {
     this.chartsService.getTopArtists()
@@ -19,11 +21,16 @@ export class ChartsComponent implements OnInit {
         console.log("artists", artists)
         this.artists=artists
       })
-
-    this.chartsService.getTopTracks()
-      .then(tracks => {
-        this.tracks = tracks
-      })
   }
 
+  getArtist(id: any, mbid: any) {
+
+    if(id !== undefined && id !== "") {
+      this.router.navigate(['artist', id]);
+    }
+    else {
+      this.router.navigate(['artist', mbid]);
+    }
+
+  }
 }

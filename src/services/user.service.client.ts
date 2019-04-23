@@ -3,7 +3,9 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class UserServiceClient {
 
-  googlelogin = (user) => fetch('https://sp19-s1-project-server-java.herokuapp.com/api/googleLogin', {
+  baseUrl = "http://localhost:8080"
+
+  googlelogin = (user) => fetch(this.baseUrl+'/api/googleLogin', {
     method : 'post',
     body: JSON.stringify(user),
     credentials: 'include',
@@ -14,7 +16,7 @@ export class UserServiceClient {
 
   profile = () => {
     console.log('Client service called');
-    return fetch('https://sp19-s1-project-server-java.herokuapp.com/api/profile', {
+    return fetch(this.baseUrl+'/api/profile', {
       method : 'get',
       credentials: 'include',
       headers: {
@@ -23,7 +25,7 @@ export class UserServiceClient {
     }).then(response => response.json());
   }
 
-  signup = (user) => fetch('https://sp19-s1-project-server-java.herokuapp.com/api/signup', {
+  signup = (user) => fetch(this.baseUrl+'/api/signup', {
     method: 'post',
     body: JSON.stringify(user),
     credentials: 'include',
@@ -43,7 +45,7 @@ export class UserServiceClient {
 
   updateUserProfile = (usr) => {
     console.log(usr)
-    return fetch('https://sp19-s1-project-server-java.herokuapp.com/api/profile', {
+    return fetch(this.baseUrl+'/api/profile', {
       method: 'put',
       body: JSON.stringify(usr),
       credentials: 'include',
