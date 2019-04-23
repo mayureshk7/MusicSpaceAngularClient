@@ -42,12 +42,7 @@ export class UserServiceClient {
     headers: {
       'content-type': 'application/json'
     }
-  }).then(response => {
-    console.log(response.json());
-    return response.json()
-  })
-  .then(response => JSON.stringify(response))
-    .catch(error => console.log(error))
+  }).then(response => response.json())
 
 /*  findUserProfileByUserName = (uname) => fetch
   (`https://sp19-s1-project-server-java.herokuapp.com/api/user/${uname}/profile`)
@@ -77,5 +72,14 @@ export class UserServiceClient {
 
   logout = () => fetch(this.baseUrl + `/api/users/logout`)
     .then(response => response.json())
+
+  signInUser = (credentials) => fetch(this.baseUrl + `/api/users/login`, {
+    method: 'post',
+    credentials: 'include',
+    body: JSON.stringify(credentials),
+    headers: {
+      'content-type': 'application/json'
+    }
+  }).then(response => response.json())
 
 }
