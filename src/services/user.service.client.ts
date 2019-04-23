@@ -56,22 +56,14 @@ export class UserServiceClient {
 
   }
 
-  followArtist = (artistId) => fetch(`https://sp19-s1-project-server-java.herokuapp.com/api/user/artists/${artistId}/follow`,{
-      method : 'get',
-    body: JSON.stringify(artistId),
-    credentials: 'include',
-    headers: {
-      'content-type': 'application/json'
-    }
-  }).then(response => response.json())
-
-  unfollowArtist = (artistId) => fetch(`https://sp19-s1-project-server-java.herokuapp.com/api/user/artists/${artistId}/unfollow`,{
+  followArtist = (artistId) => fetch(this.baseUrl+`/api/user/artists/${artistId}/follow`,{
     method : 'get',
-    body: JSON.stringify(artistId),
-    credentials: 'include',
-    headers: {
-      'content-type': 'application/json'
-    }
+    credentials: 'include'
+  }).then(response => console.log(response.json()))
+
+  unfollowArtist = (artistId) => fetch(this.baseUrl + `/api/user/artists/${artistId}/unfollow`,{
+    method : 'get',
+    credentials: 'include'
   }).then(response => response.json())
 
 
