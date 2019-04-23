@@ -46,10 +46,11 @@ export class ProfileComponent implements OnInit {
       this.userService.profile()
         .then(user => {
           this.user = user
+          alert(JSON.stringify(this.user))
         })
     }
     else {
-      alert("Please Sign In first")
+      alert("Please Sign In first");
       this.router.navigate([''])
     }
 

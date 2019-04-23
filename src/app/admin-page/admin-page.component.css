@@ -1,0 +1,111 @@
+/*.bg {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-size: cover;
+  background-color: #0c5460;
+}*/
+
+.title-text{
+  /*font-family: Elephant;*/
+}
+
+.title-bar{
+  background-color: #ffffffee;
+}
+
+.white-color{
+  color: white;
+}
+
+.login-margin-top{
+  margin-top: 50px;
+}
+
+.login-margin-bottom{
+  margin-bottom: 50px;
+}
+
+.white-background {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.big-checkbox {width: 18px; height: 18px;}
+
+body {
+  /*sanimation: colorchange 60s; /* animation-name followed by duration in seconds*/
+  /* you could also use milliseconds (ms) or something like 2.5s */
+  /* -webkit-animation: colorchange 60s; /* Chrome and Safari */
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+li a {
+  margin: 2px;
+  background-color: #f6f6f6;
+  display: block;
+  color: #000;
+  padding: 8px 8px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+body {
+  background: linear-gradient(-45deg,  #003f82, #0c5460, #780b3b, #17a2b8);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 15s ease infinite;
+  -moz-animation: Gradient 15s ease infinite;
+  animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@-moz-keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}

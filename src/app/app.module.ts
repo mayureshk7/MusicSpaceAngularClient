@@ -23,10 +23,10 @@ import { FallbackComponent } from './fallback/fallback.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import {RouterModule} from '@angular/router';
 import { TrackComponent } from './track/track.component';
-import {TrackServiceClient} from "../services/track.service.client";
-import { ArtistProfileComponent } from './artist-profile/artist-profile.component';
+import {TrackServiceClient} from '../services/track.service.client';
 import { ExplorePageComponent } from './explore-page/explore-page.component';
 import {CookieService} from 'ngx-cookie-service';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 
 export function getAuthServiceConfigs() {
@@ -56,8 +56,8 @@ export function getAuthServiceConfigs() {
     FallbackComponent,
     SearchBarComponent,
     TrackComponent,
-    ArtistProfileComponent,
-    ExplorePageComponent
+    ExplorePageComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
