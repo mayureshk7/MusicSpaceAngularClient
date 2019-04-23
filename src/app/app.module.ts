@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppRouting } from './app.routing';
@@ -11,8 +10,14 @@ import {UserServiceClient} from '../services/user.service.client';
 import { ProfileComponent } from './profile/profile.component';
 import { ChartsComponent } from './charts/charts.component';
 import {ChartsServiceClient} from '../services/charts.service.client';
-import { SignupComponent } from './signup/signup.component';
-
+import { SongsComponent } from './songs/songs.component';
+import { HomeComponent } from './home/home.component';
+import { SearchComponent } from './search/search.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
+import { ArtistpageComponent } from './artistpage/artistpage.component';
+import {SafePipe} from './safe.pipe';
+import {SignupComponent} from './signup/signup.component';
 
 
 export function getAuthServiceConfigs() {
@@ -30,6 +35,13 @@ export function getAuthServiceConfigs() {
     AppComponent,
     LoginComponent,
     ProfileComponent,
+    ChartsComponent,
+    SongsComponent,
+    HomeComponent,
+    SearchComponent,
+    HeaderComponent,
+    ArtistpageComponent,
+    SafePipe,
     ChartsComponent,
     SignupComponent
   ],

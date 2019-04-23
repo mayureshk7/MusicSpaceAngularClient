@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
 
   userName: string;
 
-  constructor(private userService: UserServiceClient, private activatedRoute: ActivatedRoute) {
+  constructor(private userService: UserServiceClient) {
   }
 
   updateUser = () => {
@@ -41,20 +41,10 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnInit() {
-/*    console.log("onInit called")
-    this.activatedRoute.params
-      .subscribe(params => {
-        this.userName = params.userName;
-      })*/
-
     this.userService.profile()
       .then(user => {
-        //console.log("User Profile",user);
         this.user = user
       })
-
-/*    this.userService.findUserProfileByUserName(this.userName)
-      .then(user => this.user = user)*/
   }
 
 }

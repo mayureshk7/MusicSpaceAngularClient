@@ -1,0 +1,21 @@
+<div class="card-deck">
+  <div *ngFor="let song of songs" class="col-3">
+    <div class="card m-2">
+     <img class="card-img-top img-fluid artistImage" src="{{song.image[2]['#text']}}" alt="Card image cap">
+      <div class="card-body" style="height: auto">
+        <div class="row">
+          <div class="col-9">
+            <h5 class="card-title">{{song.name}}</h5>
+          </div>
+          <div class="col-2">
+            <a href="{{song.url}}"><i class="fa fa-lastfm-square fa-2x lastfm-logo" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <h5>{{song.artist.name}}</h5>
+        <i class="fa fa-users" aria-hidden="true"> Followers: {{song.listeners}}</i>
+        <i class="fa fa-headphones" aria-hidden="true"> PlayCount: {{song.playcount}}</i>
+        <button class="btn btn-sm btn-block btn-success mt-2"><i class="fa fa-grav fa-2x"> Explore</i></button>
+      </div>
+    </div>
+  </div>
+</div>

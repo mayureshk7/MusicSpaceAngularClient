@@ -9,6 +9,21 @@
   /*font-family: Elephant;*/
 }
 
+.vl {
+  margin-top: auto;
+  margin-bottom: auto;
+  border-left: 1px solid lightgray;
+  height: 30px;
+}
+
+.fa-2{
+  size: 20px;
+}
+
+.scrollable{
+  background-color: #0c546022;
+}
+
 .title-bar{
   background-color: #ffffffee;
 }
@@ -34,7 +49,7 @@
 body {
   /*sanimation: colorchange 60s; /* animation-name followed by duration in seconds*/
   /* you could also use milliseconds (ms) or something like 2.5s */
- /* -webkit-animation: colorchange 60s; /* Chrome and Safari */
+  /* -webkit-animation: colorchange 60s; /* Chrome and Safari */
 }
 
 .center {
@@ -69,9 +84,9 @@ li a:hover {
 body {
   background: linear-gradient(-45deg,  #003f82, #0c5460, #780b3b, #17a2b8);
   background-size: 400% 400%;
-  -webkit-animation: Gradient 15s ease infinite;
-  -moz-animation: Gradient 15s ease infinite;
-  animation: Gradient 15s ease infinite;
+  -webkit-animation: Gradient 10s ease infinite;
+  -moz-animation: Gradient 10s ease infinite;
+  animation: Gradient 10s ease infinite;
 }
 
 @-webkit-keyframes Gradient {
@@ -108,4 +123,23 @@ body {
   100% {
     background-position: 0% 50%
   }
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

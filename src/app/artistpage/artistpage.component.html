@@ -1,0 +1,47 @@
+<body class="bg">
+<div class="container-fluid">
+  <app-header></app-header>
+
+  <div class="offset-1 col-10 mt-3 mb-3 title-bar">
+    <div class="row">
+      <div class="col-3 m-2">
+        <img class="artistImage" src="{{artist.image[2]['#text']}}">
+      </div>
+      <div class="col-5 m-2 mt-3">
+        <h1>{{artist.name}}</h1>
+        <hr width="50%">
+        <h3><i class="fa fa-users" aria-hidden="true"> Followers: {{artist.stats.listeners}}</i></h3>
+        <h3><i class="fa fa-headphones" aria-hidden="true"> PlayCount: {{artist.stats.playcount}}</i></h3>
+        <div [ngSwitch]="artist.ontour">
+          <div *ngSwitchCase="1" class="mt-2 mb-2">
+          <button class="btn btn-success"><h4> On Tour  <i class="fa fa-plane"></i></h4> </button>
+          </div>
+          <div *ngSwitchCase="0" class="mt-2 mb-2">
+            <button class="btn btn-dark"><h4> Currently Not On Tour  <i class="fa fa-frown-o"></i></h4></button>
+          </div>
+          <div class="row ml-1">
+          <div *ngFor="let tag of artist.tags.tag">
+            <button class="btn btn-primary btn-sm m-1"><h6>{{tag.name}}</h6></button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="offset-1 pt-2 col-10 mt-3 mb-3 title-bar">
+    <h3 >About {{artist.name}}</h3>
+    <hr>
+    <h5>{{artist.bio.summary}}</h5>
+    <hr>
+    <h3>{{artist.name}} Songs and Videos</h3>
+    <hr>
+    <div class="row" *ngFor="let video of artist.ytResponse.items">
+      <div class="col-3">
+        <iframe [src]="('https://www.youtube.com/embed/' + video.id.videoId) | safe"></iframe>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
