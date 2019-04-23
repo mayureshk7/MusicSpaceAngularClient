@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
+import {UserServiceClient} from '../../services/user.service.client';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   // user: any;
   isLoggedIn
-  constructor(private router: Router, private cookieService: CookieService) { }
+  constructor(private router: Router, private cookieService: CookieService, private userService: UserServiceClient) { }
 
   ngOnInit() {
     this.isLoggedIn = this.cookieService.get("isLoggedIn")
@@ -19,5 +20,17 @@ export class HeaderComponent implements OnInit {
 
   goHome() {
     this.router.navigate(['home'])
+  }
+
+  logoutUser() {
+    this.userService.logout()
+      .then(res => {
+        this.cookieService.delete("isLoggedIn")
+        this.router.navigate([''])
+      })
+  }
+
+  navigateToProfile() {
+    this.router.navigate(['profile'])
   }
 }

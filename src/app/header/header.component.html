@@ -12,11 +12,11 @@
           <div class="vl"></div>
           <button class="btn  m-1 "><i class="fa fa-dashboard" aria-hidden="true"></i>  Dashboard</button>
           <div class="vl"></div>
-          <button class="btn m-1 "><i class="fa fa-user" aria-hidden="true"></i>  Profile</button>
+          <button class="btn m-1" [routerLink]="['/profile']"><i class="fa fa-user" aria-hidden="true"></i>  Profile</button>
           <div class="vl"></div>
           <button class="btn m-1 "><i class="fa fa-space-shuttle" aria-hidden="true"></i>  Explore</button>
           <div class="vl"></div>
-          <button class="btn m-1"><i class="fa fa-sign-out fa-lg"></i> </button>
+          <button class="btn m-1" (click)="logoutUser()"><i class="fa fa-sign-out fa-lg"></i> </button>
         </div>
       </div>
     </div>

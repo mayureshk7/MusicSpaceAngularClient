@@ -66,8 +66,7 @@ export class UserServiceClient {
     credentials: 'include'
   }).then(response => response.json())
 
-
-  getSignInStatus = () => fetch(this.baseUrl + `/api/user/loginStatus`)
-    .then(res => res.json())
+  logout = () => fetch(this.baseUrl + `/api/users/logout`)
+    .then(response => response.json())
 
 }
