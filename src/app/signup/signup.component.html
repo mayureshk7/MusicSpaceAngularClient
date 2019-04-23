@@ -1,6 +1,6 @@
 <body class="bg">
 <div class="container-fluid login-margin-top login-margin-bottom">
-  <div class="col-6 offset-3 white-background pt-3 pb-3 mt-5 mb-5">
+  <div class="col-4 offset-7 white-background pt-3 pb-3 mt-5 mb-5">
     <div class="col-2 offset-5">
       <i class="fa fa-grav fa-4x fa-spin mt-4"></i>
     </div>
@@ -22,7 +22,7 @@
         <input type="password" class="form-control m-1" placeholder="*******" [(ngModel)]="user.confirmPassword">
 
         <h5 class="title-text m-1"><i class="fa fa-id-badge mr-3" aria-hidden="true" ></i>I am a </h5>
-        <select class="form-control">
+        <select class="form-control" [(ngModel)]="user.type">
           <option>Fan</option>
           <option>Artist</option>
         </select>
@@ -32,15 +32,8 @@
           <label class="form-check-label title-text ml-2" >I agree to the <a href="#">Terms Of Use</a> and <a href="#"> Privacy Policy.</a></label>
         </div>
         <button (click)="createUser()" class="btn btn-success btn-block mt-3 title-text">Create my account</button>
-        <!--        <google-signin></google-signin>-->
         <hr width="50%">
-        <label align="center" class="form-check-label title-text ml-2 d-flex justify-content-center" >Already have an account? <a href="#"> &nbsp; Log in.</a></label>
-        <!--
-        <div class="row m-1">
-        <button class="col-4 btn btn-warning btn-block mt-3 title-text">Sign Up</button>
-        <button class="col-5 offset-3 btn btn-danger btn-block mt-3 title-text">Forgot Password</button>
-        </div>
-        -->
+        <label align="center" class="form-check-label title-text ml-2 d-flex justify-content-center" >Already have an account? <a href="/"> &nbsp; Log in.</a></label>
       </div>
     </div>
   </div>

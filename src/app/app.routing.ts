@@ -10,6 +10,7 @@ import {SearchComponent} from './search/search.component';
 import {ArtistpageComponent} from './artistpage/artistpage.component';
 import {FallbackComponent} from './fallback/fallback.component';
 import {TrackComponent} from './track/track.component';
+import {ExplorePageComponent} from "./explore-page/explore-page.component";
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'songs', component: SongsComponent},
   {path: 'home', component: HomeComponent},
   {path: 'search/:type', component: SearchComponent},
+  {path: 'explore', component: ExplorePageComponent},
   {path: 'artist/:artistId', component: ArtistpageComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'signup', component: SignupComponent},

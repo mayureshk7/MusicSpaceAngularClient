@@ -14,6 +14,7 @@ export class ArtistpageComponent implements OnInit {
 /*  textChange : String = 'follow';*/
   followUnfollow = true;
   artist: any;
+  albums: any;
   idOrMbId: string;
   constructor(private artistService: ArtistServiceClient,
               private activatedRoute: ActivatedRoute,
@@ -28,6 +29,12 @@ export class ArtistpageComponent implements OnInit {
       .then(artist => {
         console.log("artists", artist)
         this.artist=artist
+      });
+
+    this.artistService.getTopAlbums(this.idOrMbId)
+      .then(albums => {
+        console.log("albums", albums)
+        this.albums = albums
       })
   }
 

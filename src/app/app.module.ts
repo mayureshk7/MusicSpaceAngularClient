@@ -24,6 +24,8 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import {RouterModule} from '@angular/router';
 import { TrackComponent } from './track/track.component';
 import {TrackServiceClient} from "../services/track.service.client";
+import { ArtistProfileComponent } from './artist-profile/artist-profile.component';
+import { ExplorePageComponent } from './explore-page/explore-page.component';
 
 
 export function getAuthServiceConfigs() {
@@ -52,7 +54,9 @@ export function getAuthServiceConfigs() {
     SignupComponent,
     FallbackComponent,
     SearchBarComponent,
-    TrackComponent
+    TrackComponent,
+    ArtistProfileComponent,
+    ExplorePageComponent
   ],
   imports: [
     BrowserModule,

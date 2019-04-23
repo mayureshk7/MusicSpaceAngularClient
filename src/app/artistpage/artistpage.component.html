@@ -58,6 +58,18 @@
 <!--        </div>-->
 <!--      </div>-->
 <!--    </div>-->
+    <hr>
+    <h3>{{artist.name}} Albums</h3>
+    <div class="card-deck">
+      <div *ngFor="let album of albums" class="col-3 m-0">
+        <div class="card m-2">
+          <img class="card-img-top img-fluid artistImage" src="{{album.image[2]['#text']}}" alt="Card image cap">
+          <div class="card-body" style="height: auto">
+            <h4>{{album.name}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 </body>
