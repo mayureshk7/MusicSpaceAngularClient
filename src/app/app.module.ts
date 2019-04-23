@@ -20,6 +20,8 @@ import {SafePipe} from './safe.pipe';
 import {SignupComponent} from './signup/signup.component';
 import {ArtistServiceClient} from '../services/artist.service.client';
 import { FallbackComponent } from './fallback/fallback.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import {RouterModule} from '@angular/router';
 
 
 export function getAuthServiceConfigs() {
@@ -46,7 +48,8 @@ export function getAuthServiceConfigs() {
     SafePipe,
     ChartsComponent,
     SignupComponent,
-    FallbackComponent
+    FallbackComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
