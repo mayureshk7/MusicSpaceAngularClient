@@ -16,9 +16,4 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  search(){
-    this.router.navigate(['search' , this.query.type, this.query.search])
-      .then( resp => this.router.navigate(['search' , this.query.type, this.query.search]));
-  }
-
 }

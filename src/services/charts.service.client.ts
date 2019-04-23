@@ -23,6 +23,8 @@ export class ChartsServiceClient {
 
 
   getSearchResults = (type, query) => {
+    console.log(type)
+    console.log(query)
     if(type == "artists"){
        return fetch(this.baseUrl +'/api/artists/search?query='+ query, {
         method : 'get',

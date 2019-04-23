@@ -16,11 +16,11 @@ const routes: Routes = [
   {path: 'user', component: ProfileComponent},
   {path: 'songs', component: SongsComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'search/:type/:query', component: SearchComponent},
+  {path: 'search/:type', component: SearchComponent},
   {path: 'artist/:artistId', component: ArtistpageComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'fallback', component: FallbackComponent}
 ];
 
-export const AppRouting = RouterModule.forRoot(routes);
+export const AppRouting = RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'});
