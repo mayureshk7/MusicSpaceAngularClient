@@ -24,6 +24,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import {RouterModule} from '@angular/router';
 import { TrackComponent } from './track/track.component';
 import {TrackServiceClient} from "../services/track.service.client";
+import {CookieService} from 'ngx-cookie-service';
 
 
 export function getAuthServiceConfigs() {
@@ -70,7 +71,8 @@ export function getAuthServiceConfigs() {
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs
-    }
+    },
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
