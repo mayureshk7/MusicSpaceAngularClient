@@ -1,6 +1,6 @@
 <body class="bg">
 <div class="container-fluid login-margin-top login-margin-bottom">
-  <div class="col-6 offset-3 blueish-background pt-3 pb-3 mt-5 mb-5">
+  <div class="col-6 offset-3 white-background pt-3 pb-3 mt-5 mb-5">
     <div class="col-2 offset-5">
       <i class="fa fa-grav fa-4x fa-spin mt-4"></i>
     </div>
@@ -17,9 +17,9 @@
         <h5 class="title-text m-1"><i class="fa fa-envelope-square mr-3" aria-hidden="true"></i>Email</h5>
         <input class="form-control m-1" placeholder="Alice@gmail.com" [(ngModel)]="user.email">
         <h5 class="title-text m-1"><i class="fa fa-key mr-3" aria-hidden="true"></i>Password</h5>
-        <input class="form-control m-1" placeholder="*******" [(ngModel)]="user.pwd">
+        <input type="password" class="form-control m-1" placeholder="*******" [(ngModel)]="user.pwd">
         <h5 class="title-text m-1"><i class="fa fa-key mr-3" aria-hidden="true"></i>Confirm Password</h5>
-        <input class="form-control m-1" placeholder="*******" [(ngModel)]="user.cpwd">
+        <input type="password" class="form-control m-1" placeholder="*******" [(ngModel)]="user.cpwd">
 
         <h5 class="title-text m-1"><i class="fa fa-id-badge mr-3" aria-hidden="true" ></i>I am a </h5>
         <select class="form-control">
@@ -28,7 +28,7 @@
         </select>
 
         <div class="form-check m-1">
-          <input type="checkbox" class="form-check-input big-checkbox ">
+          <input id="tnc" type="checkbox" class="form-check-input big-checkbox ">
           <label class="form-check-label title-text ml-2" >I agree to the <a href="#">Terms Of Use</a> and <a href="#"> Privacy Policy.</a></label>
         </div>
         <button (click)="createUser()" class="btn btn-success btn-block mt-3 title-text">Create my account</button>

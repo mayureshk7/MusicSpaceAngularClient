@@ -11,22 +11,25 @@ export class SignupComponent implements OnInit {
 
   constructor(private service: UserServiceClient) { }
   user = {
-    usrName: 'MickyMouse',
-    frstName: 'Micky',
-    lstName: 'Mouse',
-    address: 'Disney',
-    city: 'Animation',
-    country: 'Cartoon',
-    bio: 'hi i am micky'
+    userName: '',
+    email: '',
+    familyName: '',
+    givenName: '',
+    password: '',
+    confirmPassword: '',
+    type: ''
   };
   createUser = () => {
-    this.service
-      .signup(this.user)
-      .then(user => {
-        if(typeof user === "string") {
-          this.user = JSON.parse(user)
-        }
-      });
+    //var c = document.getElementById("tnc").checked
+    if(this.user.password!== null && this.user.password === this.user.confirmPassword /*&& c === true*/) {
+      this.service
+        .signup(this.user)
+        .then(user => {
+          if (typeof user === "string") {
+            this.user = JSON.parse(user)
+          }
+        });
+    }
   }
 
   ngOnInit() {

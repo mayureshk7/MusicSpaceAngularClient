@@ -9,11 +9,11 @@
   <div class="row">
     <!-- Profile Image and Name -->
     <div class="col-2 m-3 title-bar">
-      <img class="center mt-3 mb-3" src="https://picsum.photos/200/200"/>
+      <img class="center mt-3 mb-3" src={{user.pictureUrl}}/>
       <hr width="50%">
       <h4 class="title-text" align="center"><i class="fa fa-user mr-3" aria-hidden="true">  {{user.userName}}</i></h4><!--DevGan95-->
       <hr width="50%">
-      <h5 align="center"><i class="fa fa-envelope" aria-hidden="true"> {{user.email}}  </i></h5><!--dev95@gmail.com-->
+      <h5 align="center" style="word-wrap: break-word"><i class="fa fa-envelope" aria-hidden="true"> {{user.email}}  </i></h5><!--dev95@gmail.com-->
       <hr width="50%">
       <ul align="center" class="title-text">
         <li align="center"><a href="#news"><h5>Home</h5></a></li>
@@ -26,8 +26,8 @@
     </div>
     <!-- Rest of the Profile -->
     <div class="col-7 m-3 title-bar">
-      <h3 class = "m-2 title-text">{{user.firstName}}&nbsp;{{user.lastName}}</h3><!--Devanshi Ganatra-->
-      <h4 class="m-2 title-text"><i class="fa fa-address-card" aria-hidden="true"> {{user.address}}</i></h4><!--1167 Boylston-->
+      <h3 class = "m-2 title-text">{{user.name}}</h3><!--Devanshi Ganatra-->
+     <!-- <h4 class="m-2 title-text"><i class="fa fa-address-card" aria-hidden="true"> {{user.address}}</i></h4>1167 Boylston-->
       <h4 class="m-2 title-text"><i class="fa fa-map-marker" aria-hidden="true"> {{user.city}},&nbsp;{{user.country}}</i></h4><!--Boston, MA-->
       <hr width="0%">
       <hr width="50%">
@@ -46,7 +46,7 @@
           <h5 class="title-text m-2"><i class="fa fa-user-o mr-3" aria-hidden="true"></i>First Name :</h5>
         </div>
         <div class="col-8">
-          <input class="form-control m-1" value={{user.firstName}}><!--"Devanshi"-->
+          <input class="form-control m-1" value={{user.givenName}}><!--"Devanshi"-->
         </div>
       </div>
       <div class="row mt-3 mb-2">
@@ -54,33 +54,33 @@
           <h5 class="title-text m-2"><i class="fa fa-user-o mr-3" aria-hidden="true"></i>Last Name :</h5>
         </div>
         <div class="col-8">
-          <input class="form-control m-1" value={{user.lastName}}><!--"Ganatra"-->
+          <input class="form-control m-1" value={{user.familyName}}><!--"Ganatra"-->
         </div>
       </div>
       <div class="row mt-3 mb-2">
         <div class="col-3">
-          <h5 class="title-text m-2"><i class="fa fa-address-card mr-3" aria-hidden="true"></i>Address :</h5>
+          <h5 class="title-text m-2"><i class="fa fa-key mr-3" aria-hidden="true"></i>Password :</h5>
         </div>
         <div class="col-8">
-          <input class="form-control m-1" value={{user.address}}><!--"1167 Boylston"-->
+          <input class="form-control m-1" value={{user.password}}><!--"1167 Boylston"-->
         </div>
       </div>
       <div class="row mt-3 mb-2">
-        <div class="col-3">
+<!--        <div class="col-3">
           <h5 class="title-text m-2"><i class="fa fa-map-marker mr-3" aria-hidden="true"></i>City :</h5>
         </div>
         <div class="col-8 mt-2 mb-2">
-          <input class="form-control m-1" value={{user.city}}><!--"Boston"-->
-        </div>
+          <input class="form-control m-1" value={{user.city}}>&lt;!&ndash;"Boston"&ndash;&gt;
+        </div>-->
       </div>
-      <div class="row mt-3 mb-2">
+<!--      <div class="row mt-3 mb-2">
         <div class="col-3">
           <h5 class="title-text m-2"><i class="fa fa-globe mr-3" aria-hidden="true"></i>Country :</h5>
         </div>
         <div class="col-8">
-          <input class="form-control m-1" value={{user.country}}><!--"USA"-->
+          <input class="form-control m-1" value={{user.country}}>&lt;!&ndash;"USA"&ndash;&gt;
         </div>
-      </div>
+      </div>-->
       <div class="row mt-3 mb-2">
         <div class="col-3">
           <h5 class="title-text m-2"><i class="fa fa-child mr-3" aria-hidden="true"></i>Biography :</h5>
@@ -90,7 +90,7 @@
         </div>
       </div>
       <div class="offset-8 col-3 mt-3 mb-3">
-        <button class="btn btn-success btn-block"><h5 class="title-text">Save Changes</h5></button>
+        <button (click)="updateUser()" class="btn btn-success btn-block"><h5 class="title-text">Save Changes</h5></button>
       </div>
 
     </div>
