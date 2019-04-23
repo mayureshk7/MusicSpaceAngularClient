@@ -19,6 +19,7 @@ import { ArtistpageComponent } from './artistpage/artistpage.component';
 import {SafePipe} from './safe.pipe';
 import {SignupComponent} from './signup/signup.component';
 import {ArtistServiceClient} from '../services/artist.service.client';
+import { FallbackComponent } from './fallback/fallback.component';
 
 
 export function getAuthServiceConfigs() {
@@ -44,7 +45,8 @@ export function getAuthServiceConfigs() {
     ArtistpageComponent,
     SafePipe,
     ChartsComponent,
-    SignupComponent
+    SignupComponent,
+    FallbackComponent
   ],
   imports: [
     BrowserModule,

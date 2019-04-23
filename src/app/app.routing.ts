@@ -8,6 +8,7 @@ import {SongsComponent} from './songs/songs.component';
 import {HomeComponent} from './home/home.component';
 import {SearchComponent} from './search/search.component';
 import {ArtistpageComponent} from './artistpage/artistpage.component';
+import {FallbackComponent} from './fallback/fallback.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'search/:type/:query', component: SearchComponent},
   {path: 'artist/:artistId', component: ArtistpageComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'signup', component: SignupComponent}
+  {path: 'signup', component: SignupComponent},
+  {path: 'fallback', component: FallbackComponent}
 ];
 
 export const AppRouting = RouterModule.forRoot(routes);

@@ -23,7 +23,7 @@
 <!--        <google-signin></google-signin>-->
         <!--<button (click)="socialSignIn()" class="btn btn-success btn-block mt-3 title-text">Sign Up</button>-->
 
-        <button class="btn btn-primary btn-block mt-3 title-text">Continue as Guest</button>
+        <button class="btn btn-primary btn-block mt-3 title-text" [routerLink]="['/home']">Continue as Guest</button>
         <hr width="50%">
         <label align="center" class="form-check-label title-text ml-2 d-flex justify-content-center" >Don't have an account? <a (click)="navigateToSignUp()"> &nbsp;Sign up.</a></label>
 
