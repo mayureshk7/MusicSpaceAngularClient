@@ -47,7 +47,6 @@ export class ArtistpageComponent implements OnInit {
         .then(response => this.textChange = 'follow')
 
     }*/
-    this.followUnfollow = !this.followUnfollow;
     if (this.followUnfollow === true) {
       this.userService.followArtist(this.artist.id)
         .then(response => this.followUnfollow = !this.followUnfollow);

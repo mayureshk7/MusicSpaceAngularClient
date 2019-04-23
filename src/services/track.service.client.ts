@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-const baseUrl = 'https://sp19-s1-project-server-java.herokuapp.com'
+const baseUrl = 'http://localhost:8080'
 @Injectable()
 export class TrackServiceClient {
 

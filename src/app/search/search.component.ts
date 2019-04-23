@@ -24,4 +24,16 @@ export class SearchComponent implements OnInit {
       .then(results => this.searchResults = results)
   }
 
+  getArtist(id: any, mbid: any) {
+    if(id !== undefined && id !== "" && id !== 0) {
+      this.router.navigate(['artist', id]);
+    }
+    else if(mbid === undefined || mbid === "") {
+      this.router.navigate(['fallback'])
+    }
+    else {
+      this.router.navigate(['artist', mbid]);
+    }
+
+  }
 }
