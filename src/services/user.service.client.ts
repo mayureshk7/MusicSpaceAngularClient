@@ -64,4 +64,13 @@ export class UserServiceClient {
   logout = () => fetch(this.baseUrl + `/api/users/logout`)
     .then(response => response.json())
 
+  signInUser = (credentials) => fetch(this.baseUrl + `/api/users/login`, {
+    method: 'post',
+    credentials: 'include',
+    body: JSON.stringify(credentials),
+    headers: {
+      'content-type': 'application/json'
+    }
+  }).then(response => response.json())
+
 }
