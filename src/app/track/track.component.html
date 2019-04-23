@@ -5,11 +5,11 @@
   <div class="offset-1 col-10 mt-3 mb-3 title-bar">
     <div class="row">
       <div class="col-3 m-2">
-        <img class="artistImage" src="{{track.album.image[2]['#text']}}">
+        <img class="artistImage" src="{{track.album && track.album.image[2] ? track.album.image[2]['#text'] : ''}}" alt="Not Found">
       </div>
       <div class="col-5 m-2 mt-3">
         <h1>{{track.name}}</h1>
-        <h3>{{track.album.artist}}</h3>
+        <h3>{{track.album && track.album.artist ? track.album.artist : "Single Hit"}}</h3>
         <h3>{{track.album.title}}</h3>
         <hr width="50%">
         <h4><i class="fa fa-users" aria-hidden="true"> Followers: {{track.listeners}}</i></h4>

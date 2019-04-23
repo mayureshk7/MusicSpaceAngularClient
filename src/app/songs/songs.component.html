@@ -14,7 +14,7 @@
         <h5>{{song.artist.name}}</h5>
         <i class="fa fa-users" aria-hidden="true"> Followers: {{song.listeners}}</i>
         <i class="fa fa-headphones" aria-hidden="true"> PlayCount: {{song.playcount}}</i>
-        <button class="btn btn-sm btn-block btn-success mt-2"><i class="fa fa-grav fa-2x"> Explore</i></button>
+        <button class="btn btn-sm btn-block btn-success mt-2" (click)="getTrack(song.name, song.artist.name)"><i class="fa fa-grav fa-2x"> Explore</i></button>
       </div>
     </div>
   </div>

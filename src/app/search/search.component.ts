@@ -34,6 +34,17 @@ export class SearchComponent implements OnInit {
     else {
       this.router.navigate(['artist', mbid]);
     }
+  }
+
+  getTrack(trackName: string, artistName: string) {
+    console.log(trackName)
+    console.log(artistName)
+    if(trackName === undefined || trackName === "" || artistName === undefined || artistName === "") {
+      this.router.navigate(['fallback'])
+    }
+    else {
+      this.router.navigate(['artists', artistName, 'tracks',trackName])
+    }
 
   }
 }
