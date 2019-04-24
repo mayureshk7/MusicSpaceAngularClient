@@ -20,8 +20,19 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit() {
-    this.userService.getFollowingArtists()
-      .then(artists => {console.log("artists: follow : ", artists)})
+    if(this.cookieService.check('isLoggedIn') && this.cookieService.get('isLoggedIn') === 'true' &&
+    this.cookieService.check('type') && this.cookieService.get('type') === 'user') {
+      this.userService.getFollowingArtists()
+        .then(artists => {
+          console.log("artists: follow : ", artists)
+          this.followedArtists = artists
+        })
+    }
+    else {
+      alert("Please sign in as a user");
+      this.router.navigate([''])
+    }
+
   }
 
 }

@@ -25,7 +25,7 @@ export class UserServiceClient {
   }
 
   getFollowingArtists = () => {
-    return fetch(this.baseUrl + `/api/users/artists`, {
+    return fetch(this.baseUrl + '/api/users/artists', {
       method : 'get',
       credentials: 'include',
       headers: {
