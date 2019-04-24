@@ -27,4 +27,18 @@ export class TrackServiceClient {
   //     'content-type': 'application/json'
   //   }
   // }).then(response => response.json())
-}
+  likeTrack = (trackId) => fetch(this.baseUrl + `/api/user/tracks/${trackId}/like`, {
+    method: 'get',
+    credentials: 'include'
+  }).then(response => response.json())
+
+  dislikeTrack = (trackId) => fetch(this.baseUrl + `/api/user/tracks/${trackId}/dislike`, {
+    method: 'get',
+    credentials: 'include'
+  }).then(response => response.json())
+
+
+  }
+
+
+
