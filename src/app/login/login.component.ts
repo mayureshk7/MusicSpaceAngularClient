@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
             }
             else {
               this.cookieService.set("isLoggedIn", 'true')
+              this.cookieService.set("type", this.type);
               this.router.navigate(['home'])
             }
           })
@@ -60,6 +61,7 @@ export class LoginComponent implements OnInit {
         .then(user => {
           if(user.id !== undefined && user.id !== 0) {
             this.cookieService.set("isLoggedIn", 'true')
+            this.cookieService.set("type", this.type);
             this.router.navigate(["/home"])
           }
           else {
@@ -73,8 +75,8 @@ export class LoginComponent implements OnInit {
         .then(artist => {
           if(artist.id !== undefined && artist.id !== 0) {
             this.cookieService.set("isLoggedIn", 'true')
-            this.cookieService.set("type", 'artist')
-            this.router.navigate(["/home"])
+            this.cookieService.set("type", this.type)
+            this.router.navigate(['/profile','artist'])
           }
           else {
             alert("Incorrect credentials, please try again!")
