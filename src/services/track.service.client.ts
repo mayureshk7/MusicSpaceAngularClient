@@ -37,6 +37,10 @@ export class TrackServiceClient {
     credentials: 'include'
   }).then(response => response.json())
 
+  getTrackById = (trackId) => fetch(this.baseUrl + `/api/track/${trackId}`, {
+    method: 'get',
+    credentials: 'include'
+  }).then(response => response.json())
 
   }
 
