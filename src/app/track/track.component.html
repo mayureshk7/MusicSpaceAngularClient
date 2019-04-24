@@ -12,7 +12,30 @@
         <h3>{{track.album && track.album.artist ? track.album.artist : "Single Hit"}}</h3>
         <h3>{{track.album.title}}</h3>
         <hr width="50%">
-        <button class="btn btn-success mb-2">Like</button>
+
+<!--        <div *ngIf="isLoggedIn">-->
+<!--          <div *ngIf="followUnfollow">-->
+<!--            <button class="btn btn-success" (click)='followArtist()'>Follow   <i class="fa fa-user-plus"></i></button>-->
+<!--          </div>-->
+<!--          <div *ngIf="!followUnfollow">-->
+<!--            <button class="btn btn-success" (click)='followArtist()'> Unfollow   <i class="fa fa-user-times"></i></button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div *ngIf="!isLoggedIn">-->
+<!--          <button class="btn btn-success" [routerLink]="['/']">Sign In to start following &nbsp;<i class="fa fa-user-plus"></i></button>-->
+<!--        </div>-->
+        <div *ngIf="isLoggedIn">
+          <div *ngIf="likeDislike">
+            <button class="btn btn-success mb-2" (click)='likeOrDislikeTrack()'>Like</button>
+          </div>
+          <div *ngIf="!likeDislike">
+            <button class="btn btn-success mb-2" (click)='likeOrDislikeTrack()'>Unlike</button>
+          </div>
+        </div>
+        <div *ngIf="!isLoggedIn">
+          <button class="btn btn-success mb-2" [routerLink]="['/']" disabled>Sign In to like</button>
+        </div>
+
         <h4><i class="fa fa-users" aria-hidden="true"> Followers: {{track.listeners}}</i></h4>
         <h4><i class="fa fa-headphones" aria-hidden="true"> PlayCount: {{track.playcount}}</i></h4>
         <hr width="50%">
