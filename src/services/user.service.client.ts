@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class UserServiceClient {
 
-  baseUrl = "http://localhost:8080"
+  baseUrl = "http://localhost:8080";
 
   googlelogin = (user) => fetch(this.baseUrl+'/api/googleLogin', {
     method : 'post',
@@ -16,6 +16,16 @@ export class UserServiceClient {
 
   findAllUsers = () => {
     return fetch(this.baseUrl + '/api/admin/users', {
+      method : 'get',
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
+
+  getFollowingArtists = () => {
+    return fetch(this.baseUrl + '/api/users/artists', {
       method : 'get',
       credentials: 'include',
       headers: {
@@ -100,4 +110,8 @@ export class UserServiceClient {
     }
   }).then(response => response.json())
 
+  getArtistProfile = () => fetch(this.baseUrl + `/api/profile/artist`, {
+    method: 'get',
+    credentials: 'include'
+  }).then(response => response.json())
 }

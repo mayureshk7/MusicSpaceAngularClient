@@ -28,6 +28,7 @@ import { ExplorePageComponent } from './explore-page/explore-page.component';
 import {CookieService} from 'ngx-cookie-service';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { ArtistProfileComponent } from './artist-profile/artist-profile.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 export function getAuthServiceConfigs() {
@@ -59,7 +60,8 @@ export function getAuthServiceConfigs() {
     TrackComponent,
     ExplorePageComponent,
     AdminPageComponent,
-    ArtistProfileComponent
+    ArtistProfileComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

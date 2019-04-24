@@ -28,15 +28,16 @@ export class ArtistProfileComponent implements OnInit {
 
 
   ngOnInit() {
-    if (this.cookieService.check('isLoggedIn') && this.cookieService.get('isLoggedIn') === 'true') {
-      this.userService.profile()
+    if (this.cookieService.check('isLoggedIn') && this.cookieService.get('isLoggedIn') === 'true' &&
+    this.cookieService.check('type') && this.cookieService.get('type') === 'artist') {
+      this.userService.getArtistProfile()
         .then(user => {
           this.user = user
           alert(JSON.stringify(this.user))
         })
     }
     else {
-      alert("Please Sign In first");
+      alert("Please Sign In as an Artist to access this page");
       this.router.navigate([''])
     }
   }

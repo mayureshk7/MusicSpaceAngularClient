@@ -30,23 +30,22 @@ export class ProfileComponent implements OnInit {
   }
 
   updateUser = () => {
+    this.user.pictureUrl = "https://www.cmcautomobiles.co.tz/cmc/wp-content/uploads/2017/06/index.png";
     this.userService
       .updateUserProfile(this.user)
       .then(user => {
-        if (typeof user === "string") {
-          this.user = JSON.parse(user)
           console.log(this.user)
-        }
+            alert("User Profile Updated")
       });
   }
 
 
   ngOnInit() {
-    if(this.cookieService.check('isLoggedIn') && this.cookieService.get('isLoggedIn') === 'true') {
+    if(this.cookieService.check('isLoggedIn') && this.cookieService.get('isLoggedIn') === 'true' &&
+    this.cookieService.check('type') && this.cookieService.get('type') === 'user') {
       this.userService.profile()
         .then(user => {
           this.user = user
-          alert(JSON.stringify(this.user))
         })
     }
     else {

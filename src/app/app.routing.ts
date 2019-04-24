@@ -13,6 +13,7 @@ import {TrackComponent} from './track/track.component';
 import {ExplorePageComponent} from './explore-page/explore-page.component';
 import {AdminPageComponent} from './admin-page/admin-page.component';
 import {ArtistProfileComponent} from './artist-profile/artist-profile.component';
+import {DashboardComponent} from "./dashboard/dashboard.component";
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'explore', component: ExplorePageComponent},
   {path: 'artist/:artistId', component: ArtistpageComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'dashboard', component: DashboardComponent},
   {path: 'profile/artist', component: ArtistProfileComponent},
   {path: 'admin', component: AdminPageComponent},
   {path: 'signup', component: SignupComponent},

@@ -56,6 +56,9 @@ export class LoginComponent implements OnInit {
 
     let creds = {userName: this.username, password: this.password}
     console.log(creds)
+    if (this.type === undefined || this.type === "") {
+      alert("Please select a user role")
+    }
     if(this.type === 'user') {
       this.userService.signInUser(creds)
         .then(user => {
