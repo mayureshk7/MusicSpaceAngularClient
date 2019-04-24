@@ -68,7 +68,6 @@ export function getAuthServiceConfigs() {
     DashboardComponent,
     YTResultsComponent,
     UploadTrackComponent,
-    MyTrackComponent,
     MyTracksComponent
   ],
   imports: [
