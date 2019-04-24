@@ -1,0 +1,12 @@
+<div class="card-deck ml-4" >
+  <div class="row col-4"   *ngFor="let video of results">
+    <div class="card m-2 card-background">
+      <div class="card-img-top p-2" align="center" style="height: auto">
+        <iframe height="100%" width="100%" [src]="('https://www.youtube.com/embed/' + video.id.videoId) | safe"></iframe>
+      </div>
+      <div class="card-body">
+        <h5>{{video.snippet.title}}</h5>
+      </div>
+    </div>
+  </div>
+</div>

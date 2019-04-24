@@ -29,6 +29,7 @@ import {CookieService} from 'ngx-cookie-service';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { ArtistProfileComponent } from './artist-profile/artist-profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { YTResultsComponent } from './ytresults/ytresults.component';
 
 
 export function getAuthServiceConfigs() {
@@ -61,7 +62,8 @@ export function getAuthServiceConfigs() {
     ExplorePageComponent,
     AdminPageComponent,
     ArtistProfileComponent,
-    DashboardComponent
+    DashboardComponent,
+    YTResultsComponent
   ],
   imports: [
     BrowserModule,
