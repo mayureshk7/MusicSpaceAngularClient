@@ -35,7 +35,7 @@ export class UserServiceClient {
     }).then(response => response.json());
   }
 
-  signup = (user) => fetch(this.baseUrl+'/api/signup', {
+  signup = (user) => fetch(this.baseUrl+'/api/signup/user', {
     method: 'post',
     body: JSON.stringify(user),
     credentials: 'include',
@@ -47,6 +47,15 @@ export class UserServiceClient {
 /*  findUserProfileByUserName = (uname) => fetch
   (`https://sp19-s1-project-server-java.herokuapp.com/api/user/${uname}/profile`)
     .then(response => response.json())*/
+
+  signUpArtist = (artist) => fetch(this.baseUrl + '/api/signup/artist',{
+    method: 'post',
+    body: JSON.stringify(artist),
+    credentials: 'include',
+    headers: {
+      'content-type': 'application/json'
+    }
+  }).then(response => response.json())
 
   updateUserProfile = (usr) => {
     console.log(usr)
@@ -70,10 +79,19 @@ export class UserServiceClient {
     credentials: 'include'
   }).then(response => response.json())
 
-  logout = () => fetch(this.baseUrl + `/api/users/logout`)
+  logout = () => fetch(this.baseUrl + `/api/logout`)
     .then(response => response.json())
 
   signInUser = (credentials) => fetch(this.baseUrl + `/api/users/login`, {
+    method: 'post',
+    credentials: 'include',
+    body: JSON.stringify(credentials),
+    headers: {
+      'content-type': 'application/json'
+    }
+  }).then(response => response.json())
+
+  signInArtist = (credentials) => fetch(this.baseUrl + `/api/artists/login`, {
     method: 'post',
     credentials: 'include',
     body: JSON.stringify(credentials),

@@ -27,18 +27,37 @@ export class SignupComponent implements OnInit {
     //var c = document.getElementById("tnc").checked
     if(this.user.password!== null && this.user.password === this.user.confirmPassword &&
       this.user.userName !== null &&  this.user.userName !== "") {
-      this.service.signup(this.user)
-        .then(user => {
-          console.log("user", user);
-          if (user.id !== undefined) {
-            this.cookieService.set("isLoggedIn", 'true');
-            this.router.navigate(["/home"])
-          }
-          else {
-            alert("Username in use, try a different one")
-          }
+      if(this.user.type === 'fan') {
+        this.service.signup(this.user)
+          .then(user => {
+            console.log("user", user);
+            if (user.id !== undefined && user.id !== 0) {
+              this.cookieService.set("isLoggedIn", 'true');
+              this.cookieService.set("type", 'user');
+              this.router.navigate(["/home"])
+            }
+            else {
+              alert("Username in use, try a different one")
+            }
 
-        });
+          });
+      }
+      else if(this.user.type === 'artist') {
+        this.service.signUpArtist(this.user)
+          .then(artist => {
+            console.log("artist", artist);
+            if (artist.id !== undefined && artist.id !== 0) {
+              this.cookieService.set("isLoggedIn", 'true');
+              this.cookieService.set("type", 'artist');
+              this.router.navigate(['/profile', 'artist'])
+            }
+            else {
+              alert("Username in use, try a different one")
+            }
+
+          });
+      }
+
     }
   }
 
