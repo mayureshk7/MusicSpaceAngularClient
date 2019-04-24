@@ -5,8 +5,8 @@ export class UserServiceClient {
 
   baseUrl = "https://sp19-s1-project-server-java.herokuapp.com";
 
-  googlelogin = (user) => fetch(this.baseUrl+'/api/googleLogin', {
-    method : 'post',
+  googlelogin = (user) => fetch(this.baseUrl + '/api/googleLogin', {
+    method: 'post',
     body: JSON.stringify(user),
     credentials: 'include',
     headers: {
@@ -16,7 +16,7 @@ export class UserServiceClient {
 
   findAllUsers = () => {
     return fetch(this.baseUrl + '/api/admin/users', {
-      method : 'get',
+      method: 'get',
       credentials: 'include',
       headers: {
         'content-type': 'application/json'
@@ -26,7 +26,7 @@ export class UserServiceClient {
 
   getFollowingArtists = () => {
     return fetch(this.baseUrl + '/api/users/artists', {
-      method : 'get',
+      method: 'get',
       credentials: 'include',
       headers: {
         'content-type': 'application/json'
@@ -37,7 +37,7 @@ export class UserServiceClient {
   profile = () => {
     console.log('Client service called');
     return fetch(this.baseUrl + '/api/profile', {
-      method : 'get',
+      method: 'get',
       credentials: 'include',
       headers: {
         'content-type': 'application/json'
@@ -45,7 +45,7 @@ export class UserServiceClient {
     }).then(response => response.json());
   }
 
-  signup = (user) => fetch(this.baseUrl+'/api/signup/user', {
+  signup = (user) => fetch(this.baseUrl + '/api/signup/user', {
     method: 'post',
     body: JSON.stringify(user),
     credentials: 'include',
@@ -54,11 +54,11 @@ export class UserServiceClient {
     }
   }).then(response => response.json())
 
-/*  findUserProfileByUserName = (uname) => fetch
-  (`https://sp19-s1-project-server-java.herokuapp.com/api/user/${uname}/profile`)
-    .then(response => response.json())*/
+  /*  findUserProfileByUserName = (uname) => fetch
+    (`https://sp19-s1-project-server-java.herokuapp.com/api/user/${uname}/profile`)
+      .then(response => response.json())*/
 
-  signUpArtist = (artist) => fetch(this.baseUrl + '/api/signup/artist',{
+  signUpArtist = (artist) => fetch(this.baseUrl + '/api/signup/artist', {
     method: 'post',
     body: JSON.stringify(artist),
     credentials: 'include',
@@ -69,7 +69,7 @@ export class UserServiceClient {
 
   updateUserProfile = (usr) => {
     console.log(usr)
-    return fetch(this.baseUrl+'/api/profile', {
+    return fetch(this.baseUrl + '/api/profile', {
       method: 'put',
       body: JSON.stringify(usr),
       credentials: 'include',
@@ -79,13 +79,13 @@ export class UserServiceClient {
     }).then(response => response.json())
   }
 
-  followArtist = (artistId) => fetch(this.baseUrl+`/api/user/artists/${artistId}/follow`,{
-    method : 'get',
+  followArtist = (artistId) => fetch(this.baseUrl + `/api/user/artists/${artistId}/follow`, {
+    method: 'get',
     credentials: 'include'
   }).then(response => console.log(response.json()))
 
-  unfollowArtist = (artistId) => fetch(this.baseUrl + `/api/user/artists/${artistId}/unfollow`,{
-    method : 'get',
+  unfollowArtist = (artistId) => fetch(this.baseUrl + `/api/user/artists/${artistId}/unfollow`, {
+    method: 'get',
     credentials: 'include'
   }).then(response => response.json())
 
@@ -114,4 +114,11 @@ export class UserServiceClient {
     method: 'get',
     credentials: 'include'
   }).then(response => response.json())
+
+  getLikedSongs = () => fetch(this.baseUrl + `/api/users/songs`, {
+    method: 'get',
+    credentials: 'include'
+  }).then(response => response.json())
+
 }
+

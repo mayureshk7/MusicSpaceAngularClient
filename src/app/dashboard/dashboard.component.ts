@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
 
   user: any
   followedArtists: any;
-
+  likedSongs: any;
 
   constructor(private userService: UserServiceClient, private cookieService: CookieService, private router: Router) {
   }
@@ -31,6 +31,13 @@ export class DashboardComponent implements OnInit {
           console.log("artists: follow : ", artists)
           this.followedArtists = artists
         })
+
+      this.userService.getLikedSongs()
+        .then(tracks => {
+          console.log("tracks", tracks)
+          this.likedSongs = tracks
+        })
+
     }
     else {
       alert("Please sign in as a user");
