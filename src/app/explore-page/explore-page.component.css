@@ -145,6 +145,8 @@ body {
 }
 
 .margin{
+  margin-right: auto;
+  margin-left: auto;
   margin-top: 250px;
   margin-bottom: 500px
 }

@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class TrackServiceClient {
-  baseUrl = 'https://sp19-s1-project-server-java.herokuapp.com'
+  baseUrl = "https://sp19-s1-project-server-java.herokuapp.com";
   findTrackByDetails = (artist, track) => fetch(this.baseUrl + `/api/artists/${artist}/tracks/${track}` , {
     method : 'get',
     credentials: "include",
@@ -27,4 +27,18 @@ export class TrackServiceClient {
   //     'content-type': 'application/json'
   //   }
   // }).then(response => response.json())
-}
+  likeTrack = (trackId) => fetch(this.baseUrl + `/api/user/tracks/${trackId}/like`, {
+    method: 'get',
+    credentials: 'include'
+  }).then(response => response.json())
+
+  dislikeTrack = (trackId) => fetch(this.baseUrl + `/api/user/tracks/${trackId}/dislike`, {
+    method: 'get',
+    credentials: 'include'
+  }).then(response => response.json())
+
+
+  }
+
+
+

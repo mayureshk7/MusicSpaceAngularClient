@@ -10,11 +10,11 @@
         <div class=" row offset-3 col-9">
           <button class="btn m-1 " (click)="goHome()"><i class="fa fa-home" aria-hidden="true"></i>  Home</button>
           <div class="vl"></div>
-          <button class="btn  m-1 "><i class="fa fa-dashboard" aria-hidden="true"></i>  Dashboard</button>
+          <button class="btn  m-1" [routerLink]="['/dashboard']"><i class="fa fa-dashboard" aria-hidden="true"></i>  Dashboard</button>
           <div class="vl"></div>
           <button class="btn m-1" [routerLink]="['/profile']"><i class="fa fa-user" aria-hidden="true"></i>  Profile</button>
           <div class="vl"></div>
-          <button class="btn m-1 "><i class="fa fa-space-shuttle" aria-hidden="true"></i>  Explore</button>
+          <button class="btn m-1" [routerLink]="['/explore']"><i class="fa fa-space-shuttle" aria-hidden="true"></i>  Explore</button>
           <div class="vl"></div>
           <button class="btn m-1" (click)="logoutUser()"><i class="fa fa-sign-out fa-lg"></i> </button>
         </div>

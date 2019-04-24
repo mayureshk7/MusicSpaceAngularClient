@@ -8,17 +8,17 @@ import {Router} from "@angular/router";
 })
 export class ExplorePageComponent implements OnInit {
 
-  query: string;
-  type: string;
+  query:string;
+  type:string;
 
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.type = 'artists';
+    this.type = 'artists'
   }
 
   search() {
     this.router.navigate(['home'])
-      .then(res => this.router.navigate(['search' , this.type], {queryParams: {query: this.query}}));
+      .then(res => this.router.navigate(['search' , this.type], {queryParams:{query: this.query}}));
   }
 }

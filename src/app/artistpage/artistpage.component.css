@@ -20,10 +20,7 @@
   size: 20px;
 }
 
-.scrollable{
-  overflow-y:scroll;
-  overflow-x: hidden;
-  height:400px;
+.deckBg{
   background-color: #0c546022;
 }
 

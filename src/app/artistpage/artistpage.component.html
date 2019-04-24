@@ -67,7 +67,7 @@
 <!--    </div>-->
     <hr>
     <h3>Similar to {{artist.name}}</h3>
-    <div class="card-deck">
+    <div class="card-deck m-2 deckBg">
       <div *ngFor="let artist of similarArtist" class="col-2 m-0">
         <div class="card m-2">
           <img class="card-img-top img-fluid artistImage" src="{{artist.image[2]['#text']}}" alt="Card image cap">
@@ -78,7 +78,7 @@
       </div>
     </div>
     <h3>{{artist.name}} Albums</h3>
-    <div class="card-deck">
+    <div class="card-deck m-2 deckBg">
       <div *ngFor="let album of albums" class="col-3 m-0">
         <div class="card m-2">
           <img class="card-img-top img-fluid artistImage" src="{{album.image[2]['#text']}}" alt="Card image cap">
