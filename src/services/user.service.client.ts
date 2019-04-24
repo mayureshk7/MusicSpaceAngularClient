@@ -56,7 +56,7 @@ export class UserServiceClient {
     }).then(response => response.json());
   }
 
-  signup = (user) => fetch(this.baseUrl + '/api/signup/user', {
+  signup = (user) => fetch(this.baseUrl + '/api/signup/artist', {
     method: 'post',
     body: JSON.stringify(user),
     credentials: 'include',

@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
 
   user: any;
 
-  /*  user = {
+  /*  artist = {
       userName: 'MickyMouse',
       firstName: 'Micky',
       email: 'mick@minnie.com',

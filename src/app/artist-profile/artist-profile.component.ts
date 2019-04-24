@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class ArtistProfileComponent implements OnInit {
 
-  user: any
+  artist: any
   followingUsers: any;
 
   constructor(private userService: UserServiceClient, private cookieService: CookieService, private router: Router) {
@@ -18,11 +18,11 @@ export class ArtistProfileComponent implements OnInit {
 
   // updateUser = () => {
   //   this.userService
-  //     .updateUserProfile(this.user)
-  //     .then(user => {
-  //       if (typeof user === "string") {
-  //         this.user = JSON.parse(user)
-  //         console.log(this.user)
+  //     .updateUserProfile(this.artist)
+  //     .then(artist => {
+  //       if (typeof artist === "string") {
+  //         this.artist = JSON.parse(artist)
+  //         console.log(this.artist)
   //       }
   //     });
   // }
@@ -32,9 +32,9 @@ export class ArtistProfileComponent implements OnInit {
     if (this.cookieService.check('isLoggedIn') && this.cookieService.get('isLoggedIn') === 'true' &&
     this.cookieService.check('type') && this.cookieService.get('type') === 'artist') {
       this.userService.getArtistProfile()
-        .then(user => {
-          this.user = user
-          alert(JSON.stringify(this.user))
+        .then(artist => {
+          this.artist = artist
+          // alert(JSON.stringify(this.artist))
         })
 
       this.userService.getFollowingUsers()

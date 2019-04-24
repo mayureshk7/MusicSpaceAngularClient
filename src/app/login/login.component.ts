@@ -66,9 +66,9 @@ export class LoginComponent implements OnInit {
     let creds = {userName: this.username, password: this.password}
     console.log(creds)
     if (this.type === undefined || this.type === "") {
-      alert("Please select a user role")
+      alert("Please select a artist role")
     }
-    if(this.type === 'user') {
+    if(this.type === 'artist') {
       this.userService.signInUser(creds)
         .then(user => {
           if(user.id !== undefined && user.id !== 0) {

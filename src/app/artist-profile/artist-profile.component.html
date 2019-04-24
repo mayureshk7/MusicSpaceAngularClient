@@ -4,20 +4,25 @@
   <div class="row">
     <!-- Profile Image and Name -->
     <div class="col-2 m-3 title-bar">
-      <img class="center mt-3 mb-3" src={{user.pictureUrl}}/>
+      <img class="center mt-3 mb-3" src="{{artist.pictureUrl}}"/>
       <hr width="50%">
-      <h4 class="title-text" align="center"><i class="fa fa-user mr-3" aria-hidden="true">  {{user.givenName}}</i></h4><!--DevGan95-->
+      <h4 class="title-text" align="center"><i class="fa fa-user mr-3" aria-hidden="true">  {{artist.name}}</i></h4><!--DevGan95-->
       <hr width="50%">
-      <h5 align="center" style="word-wrap: break-word"><i class="fa fa-envelope" aria-hidden="true"> {{user.email}}  </i></h5><!--dev95@gmail.com-->
+      <h5 align="center" style="word-wrap: break-word"><i class="fa fa-envelope" aria-hidden="true"> {{artist.email}}  </i></h5><!--dev95@gmail.com-->
       <hr width="50%">
     </div>
 
     <div class="col-9 m-3 title-bar">
-      <h3 class = "m-2 title-text">Welcome, {{user.givenName}} !!!</h3>
+      <h3 class = "m-2 title-text">Welcome, {{artist.name}} !!!</h3>
       <hr width="0%">
       <hr width="50%">
       <hr width="0%">
+      <button class="btn btn-primary" [routerLink]="['/profile','artists', artist.id , 'tracks', 'upload']">Upload a track</button>
     </div>
+
+  </div>
+  <div class="row">
+    <app-my-tracks [artistId]="artist.id"></app-my-tracks>
   </div>
 
 </div>

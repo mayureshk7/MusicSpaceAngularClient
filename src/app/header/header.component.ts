@@ -10,7 +10,7 @@ import {UserServiceClient} from '../../services/user.service.client';
 })
 export class HeaderComponent implements OnInit {
 
-  // user: any;
+  // artist: any;
   isLoggedIn
   constructor(private router: Router, private cookieService: CookieService, private userService: UserServiceClient) { }
 
