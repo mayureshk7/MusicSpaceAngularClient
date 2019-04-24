@@ -3,8 +3,8 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class ChartsServiceClient {
 
-  // baseUrl = "http://localhost:8080"
-  baseUrl = "https://sp19-s1-project-server-java.herokuapp.com";
+  baseUrl = "http://localhost:8080"
+  // baseUrl = "https://sp19-s1-project-server-java.herokuapp.com";
 
   getTopArtists = () => fetch(this.baseUrl +'/api/artists/top', {
     method : 'get',
