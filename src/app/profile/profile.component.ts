@@ -39,7 +39,8 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnInit() {
-    if(this.cookieService.check('isLoggedIn') && this.cookieService.get('isLoggedIn') === 'true') {
+    if(this.cookieService.check('isLoggedIn') && this.cookieService.get('isLoggedIn') === 'true' &&
+    this.cookieService.check('type') && this.cookieService.get('type') === 'user') {
       this.userService.profile()
         .then(user => {
           this.user = user
