@@ -17,29 +17,6 @@
       <hr width="0%">
       <hr width="50%">
       <hr width="0%">
-      <h4 class="m-2">End Users</h4>
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <td>User Id</td>
-          <td>Username</td>
-          <td>First Name</td>
-          <td>Last Name</td>
-          <td>City</td>
-          <td>Delete User</td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let user of generalUsers">
-          <td>{{user.id}}</td>
-          <td>{{user.username}}</td>
-          <td>{{user.givenName}}</td>
-          <td>{{user.lastName}}</td>
-          <td>{{user.city}}</td>
-          <td><button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button></td>
-        </tr>
-        </tbody>
-      </table>
     </div>
   </div>
 

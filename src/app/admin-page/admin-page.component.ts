@@ -21,7 +21,6 @@ export class AdminPageComponent implements OnInit {
       this.userService.profile()
         .then(user => {
           this.user = user;
-          alert(JSON.stringify(this.user));
         });
     } else {
       alert('Please Sign In first');
@@ -31,8 +30,8 @@ export class AdminPageComponent implements OnInit {
     this.userService.findAllUsers()
       .then(users => {
         this.generalUsers = users
-        console.log(this.generalUsers)
-      })
+        console.log('user', users)
+      });
   }
 
 }
