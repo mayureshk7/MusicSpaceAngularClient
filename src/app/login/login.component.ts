@@ -15,13 +15,16 @@ import {CookieService} from 'ngx-cookie-service';
 
 
 export class LoginComponent implements OnInit {
+
+  username: string;
+  password: string;
+  type: string;
   ngOnInit(): void {  }
 
   constructor( private socialAuthService: AuthService,
                private userService: UserServiceClient,
                private router: Router,
                private cookieService: CookieService) {}
-
   public socialSignIn() {
     let socialPlatformProvider;
     socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
@@ -46,5 +49,22 @@ export class LoginComponent implements OnInit {
 
   navigateToSignUp() {
     this.router.navigate(['signup'])
+  }
+
+  signIn() {
+    console.log(this.username)
+    console.log(this.password)
+    let creds = {userName: this.username, password: this.password}
+    this.userService.signInUser(creds)
+      .then(user => {
+        if(user.id !== undefined && user.id !== 0) {
+          this.cookieService.set("isLoggedIn", 'true')
+          this.router.navigate(["/home"])
+        }
+        else {
+          alert("Incorrect credentials, please try again!")
+        }
+      })
+
   }
 }

@@ -11,19 +11,19 @@
     <hr width="50%">
     <div>
       <div class="mt-5 mr-3 ml-3 mb-3">
-        <h5 align="center" class="title-text m-1"><i class="fa fa-user-o mr-3" aria-hidden="true"></i>Username</h5>
-        <input class="form-control m-1" placeholder="Alice">
-        <h5 align="center" class="title-text m-1"><i class="fa fa-key mr-3" aria-hidden="true"></i>Password</h5>
-        <input class="form-control m-1" placeholder="*******">
+        <h5 align="center" class="title-text m-1" ><i class="fa fa-user-o mr-3" aria-hidden="true"></i>Username</h5>
+        <input class="form-control m-1" placeholder="Alice" [(ngModel)]="username">
+        <h5 align="center" class="title-text m-1" ><i class="fa fa-key mr-3" aria-hidden="true"></i>Password</h5>
+        <input class="form-control m-1" type="password" placeholder="*******" [(ngModel)]="password">
         <div class="row mt-2 m-1">
           <h5>Sign In as: </h5>
-          <select class="form-control" [(ngModel)]="user.type">
+          <select class="form-control" [(ngModel)]="type">
             <option value="user">Astronaut</option>
             <option value="artist">Galaxy Creator</option>
             <option value="admin">God mode</option>
           </select>
         </div>
-        <button class="btn btn-success btn-block mt-3 title-text">Sign In</button>
+        <button class="btn btn-success btn-block mt-3 title-text" (click)="signIn()">Sign In</button>
         <hr width="50%">
         <button (click)="socialSignIn()" class="btn btn-danger btn-block mt-3 title-text">
           Connect with <i class="fa fa-google"></i></button>
