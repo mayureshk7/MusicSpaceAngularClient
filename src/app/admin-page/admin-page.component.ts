@@ -12,26 +12,28 @@ export class AdminPageComponent implements OnInit {
 
   user: any;
   generalUsers: any;
+  generalArtists: any;
 
   constructor(private userService: UserServiceClient, private cookieService: CookieService, private router: Router) {
   }
 
   ngOnInit() {
-    if (this.cookieService.check('isLoggedIn') && this.cookieService.get('isLoggedIn') === 'true') {
-      this.userService.profile()
-        .then(user => {
-          this.user = user;
+    if (this.cookieService.check('isLoggedIn') && this.cookieService.get('isLoggedIn') === 'true' &&
+    this.cookieService.check('type') && this.cookieService.get('type') === 'admin') {
+      this.userService.findAllUsers()
+        .then(users => {
+          this.generalUsers = users
+          console.log('user', users)
         });
+      this.userService.findAllArtist()
+        .then(artists => {
+          this.generalArtists=artists;
+          console.log(this.generalArtists)
+        })
     } else {
-      alert('Please Sign In first');
+      alert('Page restricted to admin');
       this.router.navigate(['']);
     }
-
-    this.userService.findAllUsers()
-      .then(users => {
-        this.generalUsers = users
-        console.log('user', users)
-      });
   }
 
 }

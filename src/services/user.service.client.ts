@@ -24,6 +24,16 @@ export class UserServiceClient {
     }).then(response => response.json());
   }
 
+  findAllArtist = () => {
+    return fetch(this.baseUrl + '/api/admin/artists', {
+      method: 'get',
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
+
   getFollowingArtists = () => {
     return fetch(this.baseUrl + '/api/users/artists', {
       method: 'get',
@@ -102,6 +112,15 @@ export class UserServiceClient {
   }).then(response => response.json())
 
   signInArtist = (credentials) => fetch(this.baseUrl + `/api/artists/login`, {
+    method: 'post',
+    credentials: 'include',
+    body: JSON.stringify(credentials),
+    headers: {
+      'content-type': 'application/json'
+    }
+  }).then(response => response.json())
+
+  signInAdmin = (credentials) => fetch(this.baseUrl + `/api/admin/login`, {
     method: 'post',
     credentials: 'include',
     body: JSON.stringify(credentials),
