@@ -55,4 +55,10 @@ export class ProfileComponent implements OnInit {
 
   }
 
+  deleteUser(userId) {
+    this.userService.deleteUser(userId)
+      .then(response => this.router.navigate(['/'], {}));
+  }
+
+
 }

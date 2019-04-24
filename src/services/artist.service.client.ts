@@ -30,4 +30,9 @@ export class ArtistServiceClient {
     }
   }).then(response => response.json())
 
+  getYoutubeResults = (query) => fetch(this.baseUrl + `/api/artists/${query}/videos`, {
+    method: 'get',
+    credentials: 'include'
+  }).then(response => response.json());
+
 }
