@@ -33,10 +33,7 @@ export class ProfileComponent implements OnInit {
     this.userService
       .updateUserProfile(this.user)
       .then(user => {
-        if (typeof user === "string") {
-          this.user = JSON.parse(user)
           console.log(this.user)
-        }
       });
   }
 
@@ -46,7 +43,6 @@ export class ProfileComponent implements OnInit {
       this.userService.profile()
         .then(user => {
           this.user = user
-          alert(JSON.stringify(this.user))
         })
     }
     else {

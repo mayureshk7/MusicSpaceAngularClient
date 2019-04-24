@@ -32,7 +32,7 @@
       <h5 class="title-text m-2"><i class="fa fa-user mr-3" aria-hidden="true"></i>Username :</h5>
         </div>
         <div class="col-8">
-      <input class="form-control m-1" [(ngModel)]="user.userName">
+      <input class="form-control m-1" [(ngModel)]="user.userName" disabled>
         </div>
       </div>
       <div class="row mt-3 mb-2">
@@ -56,7 +56,7 @@
           <h5 class="title-text m-2"><i class="fa fa-key mr-3" aria-hidden="true"></i>Password :</h5>
         </div>
         <div class="col-8">
-          <input class="form-control m-1" [(ngModel)]="user.password"><!--"1167 Boylston"-->
+          <input class="form-control m-1" [(ngModel)]="user.password" type="password"><!--"1167 Boylston"-->
         </div>
       </div>
       <div class="row mt-3 mb-2">
@@ -64,7 +64,7 @@
           <h5 class="title-text m-2"><i class="fa fa-map-marker mr-3" aria-hidden="true"></i>City :</h5>
         </div>
         <div class="col-8 mt-2 mb-2">
-          <input class="form-control m-1" value={{user.city}}>
+          <input class="form-control m-1" [(ngModel)]="user.city">
         </div>
       </div>
       <div class="row mt-3 mb-2">
@@ -72,7 +72,7 @@
           <h5 class="title-text m-2"><i class="fa fa-globe mr-3" aria-hidden="true"></i>Country :</h5>
         </div>
         <div class="col-8">
-          <input class="form-control m-1" value={{user.country}}>
+          <input class="form-control m-1" [(ngModel)]="user.country">
         </div>
       </div>
       <div class="row mt-3 mb-2">
