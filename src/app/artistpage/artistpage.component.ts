@@ -32,7 +32,9 @@ export class ArtistpageComponent implements OnInit {
       this.idOrMbId = params['artistId'];
     });
 
-    if (this.cookieService.check("isLoggedIn") && this.cookieService.get("isLoggedIn") === 'true') {
+
+    if (this.cookieService.check("isLoggedIn") && this.cookieService.get("isLoggedIn") === 'true' &&
+      this.cookieService.check("type") && this.cookieService.get("type") === "user") {
       this.isLoggedIn = true;
     }
     else this.isLoggedIn = false;
@@ -40,6 +42,9 @@ export class ArtistpageComponent implements OnInit {
       .then(artist => {
         console.log("artists", artist)
         this.artist=artist
+        console.log("follow unfollow", artist.is_followed)
+        this.followUnfollow = !(artist.is_followed !== undefined && artist.is_followed === true);
+        console.log(this.followUnfollow)
       });
 
     this.artistService.getTopAlbums(this.idOrMbId)
@@ -72,20 +77,6 @@ export class ArtistpageComponent implements OnInit {
   }
 
   followArtist = () => {
-/*    if (this.textChange === 'follow') {
-      this.textChange = 'unfollow'
-      console.log("inside follow")
-      this.userService
-        .followArtist(this.artist.id)
-        .then(response => this.textChange = 'unfollow')
-    }else{
-      console.log('inside unfollow');
-      this.textChange = 'follow'
-      this.userService
-        .unfollowArtist(this.artist.id)
-        .then(response => this.textChange = 'follow')
-
-    }*/
     if (this.followUnfollow === true) {
       this.userService.followArtist(this.artist.id)
         .then(response => this.followUnfollow = !this.followUnfollow);
