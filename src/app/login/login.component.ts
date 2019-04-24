@@ -51,19 +51,41 @@ export class LoginComponent implements OnInit {
   }
 
   signIn() {
-    console.log(this.username)
-    console.log(this.password)
+
     let creds = {userName: this.username, password: this.password}
-    this.userService.signInUser(creds)
-      .then(user => {
-        if(user.id !== undefined && user.id !== 0) {
-          this.cookieService.set("isLoggedIn", 'true')
-          this.router.navigate(["/home"])
-        }
-        else {
-          alert("Incorrect credentials, please try again!")
-        }
-      })
+    console.log(creds)
+    if(this.type === 'user') {
+      this.userService.signInUser(creds)
+        .then(user => {
+          if(user.id !== undefined && user.id !== 0) {
+            this.cookieService.set("isLoggedIn", 'true')
+            this.router.navigate(["/home"])
+          }
+          else {
+            alert("Incorrect credentials, please try again!")
+          }
+        })
+    }
+
+    else if(this.type === 'artist') {
+      this.userService.signInArtist(creds)
+        .then(artist => {
+          if(artist.id !== undefined && artist.id !== 0) {
+            this.cookieService.set("isLoggedIn", 'true')
+            this.cookieService.set("type", 'artist')
+            this.router.navigate(["/home"])
+          }
+          else {
+            alert("Incorrect credentials, please try again!")
+          }
+        })
+
+    }
+
+    else {
+      //SIgn in admin
+    }
+
 
   }
 }
