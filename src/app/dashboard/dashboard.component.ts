@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserServiceClient} from "../../services/user.service.client";
 import {CookieService} from "ngx-cookie-service";
 import {Router} from "@angular/router";
+import {TrackServiceClient} from '../../services/track.service.client';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,8 @@ export class DashboardComponent implements OnInit {
   followedArtists: any;
   likedSongs: any;
 
-  constructor(private userService: UserServiceClient, private cookieService: CookieService, private router: Router) {
+  constructor(private userService: UserServiceClient, private cookieService: CookieService,
+              private router: Router, private trackService: TrackServiceClient) {
   }
 
   ngOnInit() {
@@ -56,6 +58,20 @@ export class DashboardComponent implements OnInit {
         .then( resp => this.router.navigate(['artist', mbid]));
     }
 
+  }
+
+
+  // Call this method when a song is clicked
+  getTrack(trackId) {
+    this.trackService.getTrackById(trackId)
+      .then(response => {
+        console.log(response)
+        let trackName = response.trackName;
+        let artistName = response.artistName;
+        console.log("trackName", trackName)
+        console.log("artistName", artistName)
+        this.router.navigate(['/artists', artistName, 'tracks', trackName])
+      })
   }
 
 }

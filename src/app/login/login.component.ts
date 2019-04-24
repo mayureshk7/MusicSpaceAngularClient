@@ -26,26 +26,35 @@ export class LoginComponent implements OnInit {
                private router: Router,
                private cookieService: CookieService) {}
   public socialSignIn() {
-    let socialPlatformProvider;
-    socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
 
-    this.socialAuthService.signIn(socialPlatformProvider).then(
-      (userData) => {
-        console.log("Google" + ' sign in data : ' , userData);
-        this.userService.googlelogin({idToken: userData.idToken})
-          .then((user) => {
-            console.log(user)
-            if(user === {} || user === undefined) {
-              alert("Login unsuccessful")
-            }
-            else {
-              this.cookieService.set("isLoggedIn", 'true')
-              this.cookieService.set("type", this.type);
-              this.router.navigate(['home'])
-            }
-          })
-      }
-    );
+    if(this.type === 'artist' || this.type === "admin") {
+      alert("Google Sign In only available for Fan role, more coming soon")
+    }
+
+    else {
+      let socialPlatformProvider;
+      socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+
+      this.socialAuthService.signIn(socialPlatformProvider).then(
+        (userData) => {
+          console.log("Google" + ' sign in data : ' , userData);
+          this.userService.googlelogin({idToken: userData.idToken})
+            .then((user) => {
+              console.log(user)
+              if(user === {} || user === undefined) {
+                alert("Login unsuccessful")
+              }
+              else {
+                this.cookieService.set("isLoggedIn", 'true')
+                this.cookieService.set("type", this.type);
+                console.log(this.type)
+                this.router.navigate(['/home'])
+              }
+            })
+        }
+      );
+    }
+
   }
 
   navigateToSignUp() {
