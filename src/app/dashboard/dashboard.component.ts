@@ -48,14 +48,13 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  getArtist(mbid: any) {
+  getArtist(mbId: any) {
 
-    if(mbid === undefined || mbid === "") {
+    if(mbId === undefined || mbId === "") {
       this.router.navigate(['fallback'])
     }
     else {
-      this.router.navigate([''])
-        .then( resp => this.router.navigate(['artist', mbid]));
+       this.router.navigate(['artist', mbId]);
     }
 
   }
