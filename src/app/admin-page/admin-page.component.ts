@@ -36,4 +36,10 @@ export class AdminPageComponent implements OnInit {
     }
   }
 
+  deleteUser(userId) {
+    this.userService.deleteUser(userId)
+      .then(response => this.router.navigate(["/admin"], {}))
+  }
+
+
 }
