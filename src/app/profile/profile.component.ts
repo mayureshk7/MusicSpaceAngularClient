@@ -30,10 +30,12 @@ export class ProfileComponent implements OnInit {
   }
 
   updateUser = () => {
+    this.user.pictureUrl = "https://www.cmcautomobiles.co.tz/cmc/wp-content/uploads/2017/06/index.png";
     this.userService
       .updateUserProfile(this.user)
       .then(user => {
           console.log(this.user)
+            alert("User Profile Updated")
       });
   }
 

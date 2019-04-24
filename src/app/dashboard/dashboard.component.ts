@@ -20,18 +20,6 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit() {
-    if (this.cookieService.check('isLoggedIn') && this.cookieService.get('isLoggedIn') === 'true') {
-      this.userService.profile()
-        .then(user => {
-          this.user = user
-          alert(JSON.stringify(this.user));
-        });
-    }
-    else {
-      alert("Please Sign In first");
-      this.router.navigate(['']);
-    }
-
     this.userService.getFollowingArtists()
       .then(artists => {console.log("artists: follow : ", artists)})
   }
