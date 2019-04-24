@@ -98,7 +98,17 @@ export class LoginComponent implements OnInit {
     }
 
     else {
-      //SIgn in admin
+      this.userService.signInAdmin(creds)
+        .then(admin => {
+          if(admin.id !== undefined && admin.id !== 0) {
+            this.cookieService.set('isLoggedIn', 'true')
+            this.cookieService.set('type', this.type)
+            this.router.navigate(['/admin'])
+          }
+          else {
+            alert("Incorrect credentials, please try again!")
+          }
+        })
     }
 
 
