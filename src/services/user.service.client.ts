@@ -139,5 +139,10 @@ export class UserServiceClient {
     credentials: 'include'
   }).then(response => response.json())
 
+  deleteUser = (userId) => fetch(this.baseUrl + `/api/user/${userId}`, {
+    method: 'delete',
+    credentials: 'include'
+  }).then(response => response.json())
+
 }
 
