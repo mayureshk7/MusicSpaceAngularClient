@@ -14,7 +14,6 @@ import {ExplorePageComponent} from './explore-page/explore-page.component';
 import {AdminPageComponent} from './admin-page/admin-page.component';
 import {ArtistProfileComponent} from './artist-profile/artist-profile.component';
 import {DashboardComponent} from "./dashboard/dashboard.component";
-import {MyTrackComponent} from './my-track/my-track.component';
 import {UploadTrackComponent} from './upload-track/upload-track.component';
 import {MyTracksComponent} from './my-tracks/my-tracks.component';
 
@@ -34,7 +33,6 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'fallback', component: FallbackComponent},
   {path: 'artists/:artist/tracks/:track', component: TrackComponent},
-  {path: 'profile/artists/:artistId/my/tracks/:trackId', component: MyTrackComponent},
   {path: 'profile/artists/:artistId/tracks/upload', component: UploadTrackComponent},
   {path: 'profile/artists/:artistId/my/tracks', component: MyTracksComponent}
 ];
