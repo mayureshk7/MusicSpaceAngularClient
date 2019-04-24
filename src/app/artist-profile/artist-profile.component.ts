@@ -11,20 +11,21 @@ import {Router} from "@angular/router";
 export class ArtistProfileComponent implements OnInit {
 
   user: any
+  followingUsers: any;
 
   constructor(private userService: UserServiceClient, private cookieService: CookieService, private router: Router) {
   }
 
-  updateUser = () => {
-    this.userService
-      .updateUserProfile(this.user)
-      .then(user => {
-        if (typeof user === "string") {
-          this.user = JSON.parse(user)
-          console.log(this.user)
-        }
-      });
-  }
+  // updateUser = () => {
+  //   this.userService
+  //     .updateUserProfile(this.user)
+  //     .then(user => {
+  //       if (typeof user === "string") {
+  //         this.user = JSON.parse(user)
+  //         console.log(this.user)
+  //       }
+  //     });
+  // }
 
 
   ngOnInit() {
@@ -34,6 +35,12 @@ export class ArtistProfileComponent implements OnInit {
         .then(user => {
           this.user = user
           alert(JSON.stringify(this.user))
+        })
+
+      this.userService.getFollowingUsers()
+        .then(users => {
+          console.log(users)
+          this.followingUsers = users
         })
     }
     else {
