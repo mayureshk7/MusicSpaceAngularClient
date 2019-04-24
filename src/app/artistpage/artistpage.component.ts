@@ -3,6 +3,7 @@ import {ArtistServiceClient} from '../../services/artist.service.client';
 import {Router, ActivatedRoute} from '@angular/router';
 import {UserServiceClient} from '../../services/user.service.client';
 import {CookieService} from 'ngx-cookie-service';
+import {getOrSetAsInMap} from "@angular/animations/browser/src/render/shared";
 
 
 @Component({
@@ -17,12 +18,14 @@ export class ArtistpageComponent implements OnInit {
   followUnfollow = true;
   artist: any;
   albums: any;
+  similarArtist: any;
   idOrMbId: string;
   isLoggedIn: boolean;
   constructor(private artistService: ArtistServiceClient,
               private activatedRoute: ActivatedRoute,
               private userService: UserServiceClient,
-              private cookieService: CookieService) { }
+              private cookieService: CookieService,
+              private router: Router) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
@@ -43,9 +46,30 @@ export class ArtistpageComponent implements OnInit {
       .then(albums => {
         console.log("albums", albums)
         this.albums = albums
-      })
+      });
+
+    this.artistService.getSimilar(this.idOrMbId)
+      .then(similarArtist => {
+        console.log("Similar", similarArtist)
+        this.similarArtist = similarArtist
+      });
   }
 
+  getArtist(id: any, mbid: any) {
+
+    if(id !== undefined && id !== "" && id !== 0) {
+      this.router.navigate([''])
+        .then( resp => this.router.navigate(['artist', id]));
+    }
+    else if(mbid === undefined || mbid === "") {
+      this.router.navigate(['fallback'])
+    }
+    else {
+      this.router.navigate([''])
+        .then( resp => this.router.navigate(['artist', mbid]));
+    }
+
+  }
 
   followArtist = () => {
 /*    if (this.textChange === 'follow') {

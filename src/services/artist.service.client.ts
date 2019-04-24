@@ -20,4 +20,12 @@ export class ArtistServiceClient {
       'content-type': 'application/json'
     }
   }).then(response => response.json())
+
+  getSimilar =  (idOrMbid) => fetch(this.baseUrl+`/api/artists/${idOrMbid}/similar`, {
+    method : 'get',
+    credentials: "include",
+    headers: {
+      'content-type': 'application/json'
+    }
+  }).then(response => response.json())
 }
