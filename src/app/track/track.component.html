@@ -44,16 +44,7 @@
             <button class="btn btn-primary btn-sm m-1"><h6>{{tag.name}}</h6></button>
           </div>
         </div>
-        <!--
-        <div *ngIf="followUnfollow">
-          <button class="btn btn-success" (click)='followArtist()'>Follow   <i class="fa fa-user-plus"></i></button>
-        </div>
-        <div *ngIf="!followUnfollow">
-          <button class="btn btn-success" (click)='followArtist()'> Unfollow   <i class="fa fa-user-times"></i></button>
-        </div>
-        <!--follow unfollow {{devanshi}}-->
-        <!--<button class="btn btn-success" (click)='followArtist()'><i class="fa fa-user-plus"></i></button>-->
-      </div>
+         </div>
     </div>
   </div>
 
@@ -61,6 +52,15 @@
     <h3 >About {{track.name}}</h3>
     <hr>
     <h5>{{track.wiki.content}}</h5>
+    <hr>
+
+      <div class="m-2" align="center">
+       <div class="p-2" style="height: 320px; width: 480px">
+          <iframe height="100%" width="100%" [src]="('https://www.youtube.com/embed/'
+          + track.ytResponse.items[0].id.videoId) | safe"></iframe>
+        </div>
+      </div>
+    <hr width="0%">
     <hr>
   </div>
 
