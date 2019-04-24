@@ -31,7 +31,6 @@ import { ArtistProfileComponent } from './artist-profile/artist-profile.componen
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { YTResultsComponent } from './ytresults/ytresults.component';
 import { UploadTrackComponent } from './upload-track/upload-track.component';
-import { MyTrackComponent } from './my-track/my-track.component';
 import { MyTracksComponent } from './my-tracks/my-tracks.component';
 
 
@@ -68,7 +67,6 @@ export function getAuthServiceConfigs() {
     DashboardComponent,
     YTResultsComponent,
     UploadTrackComponent,
-    MyTrackComponent,
     MyTracksComponent
   ],
   imports: [
