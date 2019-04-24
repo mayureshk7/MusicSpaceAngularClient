@@ -3,8 +3,6 @@ import {ArtistServiceClient} from '../../services/artist.service.client';
 import {Router, ActivatedRoute} from '@angular/router';
 import {UserServiceClient} from '../../services/user.service.client';
 import {CookieService} from 'ngx-cookie-service';
-import {getOrSetAsInMap} from "@angular/animations/browser/src/render/shared";
-
 
 @Component({
   selector: 'app-artistpage',
