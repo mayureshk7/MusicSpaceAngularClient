@@ -17,17 +17,14 @@
           <div *ngIf="followUnfollow">
             <button class="btn btn-success" (click)='followArtist()'>Follow   <i class="fa fa-user-plus"></i></button>
           </div>
-          <div *ngIf="!followUnfollow">
+          <div class="row" *ngIf="!followUnfollow">
             <button class="btn btn-success" (click)='followArtist()'> Unfollow   <i class="fa fa-user-times"></i></button>
+
           </div>
         </div>
         <div *ngIf="!isLoggedIn">
           <button class="btn btn-success" [routerLink]="['/']" disabled>Sign In As User to start following &nbsp;<i class="fa fa-user-plus"></i></button>
         </div>
-
-
-        <!--follow unfollow {{devanshi}}-->
-        <!--<button class="btn btn-success" (click)='followArtist()'><i class="fa fa-artist-plus"></i></button>-->
 
         <div [ngSwitch]="artist.ontour">
           <div *ngSwitchCase="1" class="mt-2 mb-2">
@@ -45,6 +42,8 @@
       </div>
     </div>
   </div>
+
+  <div class="btn btn-primary" [routerLink]="['/artists',artist.name, 'events']">Events</div>
 
   <div class="offset-1 pt-2 col-10 mt-3 mb-3 title-bar">
     <h3 >About {{artist.name}}</h3>

@@ -32,6 +32,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { YTResultsComponent } from './ytresults/ytresults.component';
 import { UploadTrackComponent } from './upload-track/upload-track.component';
 import { MyTracksComponent } from './my-tracks/my-tracks.component';
+import { EventsComponent } from './events/events.component';
 
 
 export function getAuthServiceConfigs() {
@@ -67,7 +68,8 @@ export function getAuthServiceConfigs() {
     DashboardComponent,
     YTResultsComponent,
     UploadTrackComponent,
-    MyTracksComponent
+    MyTracksComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,

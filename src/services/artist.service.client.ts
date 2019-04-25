@@ -44,5 +44,8 @@ export class ArtistServiceClient {
     }
   }).then(response => response.json())
 
-
+  getEvents = (artistName) => fetch(this.baseUrl + `/api/artists/${artistName}/events`, {
+    method: 'get',
+    credentials: 'include',
+  }).then(response => response.json())
 }
