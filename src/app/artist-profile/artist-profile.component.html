@@ -76,12 +76,14 @@
           <button (click)="updateArtist()" class="btn btn-success btn-block"><h5 class="title-text">Save Changes</h5></button>
         </div>
       </div>
+      <hr>
+      <div class="row m-2">
+        <app-my-tracks [artistId]="artist.id"></app-my-tracks>
+      </div>
+      <hr>
 
     </div>
 
-  </div>
-  <div class="row">
-    <app-my-tracks [artistId]="artist.id"></app-my-tracks>
   </div>
 
 </div>
