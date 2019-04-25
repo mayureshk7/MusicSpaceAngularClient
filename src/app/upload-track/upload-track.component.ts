@@ -38,7 +38,7 @@ export class UploadTrackComponent implements OnInit {
       let track = {trackName: this.trackName, audioUrl: this.audioUrl, imageUrl: this.imageUrl}
       this.trackService.uploadTrack(this.artistId, track)
         .then(track =>
-          this.router.navigate(['/profile', 'artists', this.artistId, 'my', 'tracks', track.id]))
+          this.router.navigate(['/profile', 'artist', 'edit']))
     }
   }
 

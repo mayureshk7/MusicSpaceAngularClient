@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {UserServiceClient} from '../../services/user.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
-import {mkdir} from 'fs';
 
 @Component({
   selector: 'app-profile',
