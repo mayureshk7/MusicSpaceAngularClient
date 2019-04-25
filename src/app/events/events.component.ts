@@ -19,7 +19,7 @@ export class EventsComponent implements OnInit {
     )
     this.artistService.getEvents(this.artistName)
       .then(events => {
-        console.log(events)
+        console.log('Events', events)
         this.events = events
       })
 

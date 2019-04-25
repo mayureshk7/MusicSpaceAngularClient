@@ -16,6 +16,7 @@ export class ArtistpageComponent implements OnInit {
   followUnfollow = true;
   artist: any;
   albums: any;
+  fans: any;
   similarArtist: any;
   idOrMbId: string;
   isLoggedIn: boolean;

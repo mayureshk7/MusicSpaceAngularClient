@@ -1,3 +1,25 @@
-<p>
-  events works!
-</p>
+<body class="bg">
+<div class="container-fluid">
+<div class="offset-1 pt-2 col-10 mt-3 mb-3 title-bar">
+<div class="card-deck m-2 deckBg">
+  <h1>{{artistName}}&nbsp; Events</h1>
+  <hr width="90%">
+  <img class="artistImage" src="{{artist.image[2]['#text']}}">
+  <div *ngFor="let event of events" class="col-6 m-0">
+    <div class="card m-2">
+
+      <div class="card-body" style="height: auto">
+        <img class="small" src="https://brandcdn.exacttarget.com/blog/uploads/2017/01/Screen-Shot-2017-01-23-at-11.37.38-AM.png">
+        <ul>
+          <li>Date and Time:&nbsp;{{event.datetime}}</li>
+          <li>Venue:&nbsp;{{event.venue.name}},&nbsp;{{event.venue.city}},&nbsp;{{event.venue.country}}</li>
+          <a class="btn btn-sm btn-block btn-success mt-2" href="{{event.url}}"><i class="fa fa-music">&nbsp;Find Out More @Bandsintown</i></a>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</body>
