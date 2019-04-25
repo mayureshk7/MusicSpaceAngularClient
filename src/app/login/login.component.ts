@@ -88,7 +88,7 @@ export class LoginComponent implements OnInit {
           if(artist.id !== undefined && artist.id !== 0) {
             this.cookieService.set("isLoggedIn", 'true')
             this.cookieService.set("type", this.type)
-            this.router.navigate(['/profile','artist'])
+            this.router.navigate(['/profile','artist','edit'])
           }
           else {
             alert("Incorrect credentials, please try again!")

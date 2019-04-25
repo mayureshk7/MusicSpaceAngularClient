@@ -154,5 +154,10 @@ export class UserServiceClient {
     method: 'get',
     credentials: 'include'
   }).then(response => response.json())
+
+  getProfileById = (userId) => fetch(this.baseUrl + `/api/profile/${userId}`, {
+    method: 'get',
+    credentials: 'include'
+  }).then(response => response.json())
 }
 

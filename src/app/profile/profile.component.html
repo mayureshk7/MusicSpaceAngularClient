@@ -10,14 +10,17 @@
       <hr width="50%">
       <h5 align="center" style="word-wrap: break-word"><i class="fa fa-envelope" aria-hidden="true"> {{user.email}}  </i></h5><!--dev95@gmail.com-->
       <hr width="50%">
-      <ul align="center" class="title-text">
-        <li align="center"><a href="#news"><h5>Home</h5></a></li>
-        <li align="center"><a href="#news"><h5>Dashboard</h5></a></li>
-        <li align="center"><a href="#news"><h5>Profile</h5></a></li>
-        <li align="center"><a href="#contact"><h5>Calender</h5></a></li>
-        <li align="center"><a href="#about"><h5>Contact Us</h5></a></li>
-        <li align="center"><a href="#about"><h5>About</h5></a></li>
-      </ul>
+      <div *ngIf="isOwn">
+        <ul align="center" class="title-text">
+          <li align="center"><a href="#news"><h5>Home</h5></a></li>
+          <li align="center"><a href="#news"><h5>Dashboard</h5></a></li>
+          <li align="center"><a href="#news"><h5>Profile</h5></a></li>
+          <li align="center"><a href="#contact"><h5>Calender</h5></a></li>
+          <li align="center"><a href="#about"><h5>Contact Us</h5></a></li>
+          <li align="center"><a href="#about"><h5>About</h5></a></li>
+        </ul>
+      </div>
+
       <hr width="50%">
     </div>
     <!-- Rest of the Profile -->
@@ -27,71 +30,126 @@
       <hr width="50%">
       <hr width="0%">
 
-      <div class="row mt-3 mb-2">
-        <div class="col-3">
-      <h5 class="title-text m-2"><i class="fa fa-user mr-3" aria-hidden="true"></i>Username :</h5>
+      <div *ngIf="isOwn">
+        <div class="row mt-3 mb-2">
+          <div class="col-3">
+            <h5 class="title-text m-2"><i class="fa fa-user mr-3" aria-hidden="true"></i>Username/Handle:</h5>
+          </div>
+          <div class="col-8">
+            <input class="form-control m-1" [(ngModel)]="user.userName" disabled>
+          </div>
         </div>
-        <div class="col-8">
-      <input class="form-control m-1" [(ngModel)]="user.userName" disabled>
+        <div class="row mt-3 mb-2">
+          <div class="col-3">
+            <h5 class="title-text m-2"><i class="fa fa-user-o mr-3" aria-hidden="true"></i>First Name :</h5>
+          </div>
+          <div class="col-8">
+            <input class="form-control m-1" [(ngModel)]="user.givenName"><!--"Devanshi"-->
+          </div>
         </div>
-      </div>
-      <div class="row mt-3 mb-2">
-        <div class="col-3">
-          <h5 class="title-text m-2"><i class="fa fa-user-o mr-3" aria-hidden="true"></i>First Name :</h5>
+        <div class="row mt-3 mb-2">
+          <div class="col-3">
+            <h5 class="title-text m-2"><i class="fa fa-user-o mr-3" aria-hidden="true"></i>Last Name :</h5>
+          </div>
+          <div class="col-8">
+            <input class="form-control m-1" [(ngModel)]="user.familyName"><!--"Ganatra"-->
+          </div>
         </div>
-        <div class="col-8">
-          <input class="form-control m-1" [(ngModel)]="user.givenName"><!--"Devanshi"-->
+        <div class="row mt-3 mb-2">
+          <div class="col-3">
+            <h5 class="title-text m-2"><i class="fa fa-key mr-3" aria-hidden="true"></i>Password :</h5>
+          </div>
+          <div class="col-8">
+            <input class="form-control m-1" [(ngModel)]="user.password" type="password"><!--"1167 Boylston"-->
+          </div>
         </div>
-      </div>
-      <div class="row mt-3 mb-2">
-        <div class="col-3">
-          <h5 class="title-text m-2"><i class="fa fa-user-o mr-3" aria-hidden="true"></i>Last Name :</h5>
+        <div class="row mt-3 mb-2">
+          <div class="col-3">
+            <h5 class="title-text m-2"><i class="fa fa-map-marker mr-3" aria-hidden="true"></i>City :</h5>
+          </div>
+          <div class="col-8 mt-2 mb-2">
+            <input class="form-control m-1" [(ngModel)]="user.city">
+          </div>
         </div>
-        <div class="col-8">
-          <input class="form-control m-1" [(ngModel)]="user.familyName"><!--"Ganatra"-->
+        <div class="row mt-3 mb-2">
+          <div class="col-3">
+            <h5 class="title-text m-2"><i class="fa fa-globe mr-3" aria-hidden="true"></i>Country :</h5>
+          </div>
+          <div class="col-8">
+            <input class="form-control m-1" [(ngModel)]="user.country">
+          </div>
         </div>
-      </div>
-      <div class="row mt-3 mb-2">
-        <div class="col-3">
-          <h5 class="title-text m-2"><i class="fa fa-key mr-3" aria-hidden="true"></i>Password :</h5>
+        <div class="row mt-3 mb-2">
+          <div class="col-3">
+            <h5 class="title-text m-2"><i class="fa fa-child mr-3" aria-hidden="true"></i>Biography :</h5>
+          </div>
+          <div class="col-8">
+            <textarea class="form-control m-1" rows="5" [(ngModel)]="user.bio"></textarea>
+          </div>
         </div>
-        <div class="col-8">
-          <input class="form-control m-1" [(ngModel)]="user.password" type="password"><!--"1167 Boylston"-->
+        <div class="row">
+          <div class="offset-4 col-3 mt-3 mb-3">
+            <button (click)="deleteUser(user.id)" class="btn btn-danger btn-block"><h5 class="title-text">Delete Profile</h5></button>
+          </div>
+
+          <div class="offset-1 col-3 mt-3 mb-3">
+            <button (click)="updateUser()" class="btn btn-success btn-block"><h5 class="title-text">Save Changes</h5></button>
+          </div>
         </div>
-      </div>
-      <div class="row mt-3 mb-2">
-      <div class="col-3">
-          <h5 class="title-text m-2"><i class="fa fa-map-marker mr-3" aria-hidden="true"></i>City :</h5>
-        </div>
-        <div class="col-8 mt-2 mb-2">
-          <input class="form-control m-1" [(ngModel)]="user.city">
-        </div>
-      </div>
-      <div class="row mt-3 mb-2">
-        <div class="col-3">
-          <h5 class="title-text m-2"><i class="fa fa-globe mr-3" aria-hidden="true"></i>Country :</h5>
-        </div>
-        <div class="col-8">
-          <input class="form-control m-1" [(ngModel)]="user.country">
-        </div>
-      </div>
-      <div class="row mt-3 mb-2">
-        <div class="col-3">
-          <h5 class="title-text m-2"><i class="fa fa-child mr-3" aria-hidden="true"></i>Biography :</h5>
-        </div>
-        <div class="col-8">
-          <textarea class="form-control m-1" rows="5" [(ngModel)]="user.bio"></textarea>
-        </div>
-      </div>
-      <div class="row">
-      <div class="offset-4 col-3 mt-3 mb-3">
-        <button (click)="deleteUser(user.id)" class="btn btn-danger btn-block"><h5 class="title-text">Delete Profile</h5></button>
       </div>
 
-      <div class="offset-1 col-3 mt-3 mb-3">
-        <button (click)="updateUser()" class="btn btn-success btn-block"><h5 class="title-text">Save Changes</h5></button>
+      <div *ngIf="!isOwn">
+        <div class="row mt-3 mb-2">
+          <div class="col-3">
+            <h5 class="title-text m-2"><i class="fa fa-user mr-3" aria-hidden="true"></i>Username/Handle:</h5>
+          </div>
+          <div class="col-8">
+            <input class="form-control m-1" [(ngModel)]="user.userName" disabled>
+          </div>
+        </div>
+        <div class="row mt-3 mb-2">
+          <div class="col-3">
+            <h5 class="title-text m-2"><i class="fa fa-user-o mr-3" aria-hidden="true"></i>First Name :</h5>
+          </div>
+          <div class="col-8">
+            <input class="form-control m-1" [(ngModel)]="user.givenName" disabled><!--"Devanshi"-->
+          </div>
+        </div>
+        <div class="row mt-3 mb-2">
+          <div class="col-3">
+            <h5 class="title-text m-2"><i class="fa fa-user-o mr-3" aria-hidden="true"></i>Last Name :</h5>
+          </div>
+          <div class="col-8">
+            <input class="form-control m-1" [(ngModel)]="user.familyName" disabled><!--"Ganatra"-->
+          </div>
+        </div>
+        <div class="row mt-3 mb-2">
+          <div class="col-3">
+            <h5 class="title-text m-2"><i class="fa fa-map-marker mr-3" aria-hidden="true"></i>City :</h5>
+          </div>
+          <div class="col-8 mt-2 mb-2">
+            <input class="form-control m-1" [(ngModel)]="user.city" disabled>
+          </div>
+        </div>
+        <div class="row mt-3 mb-2">
+          <div class="col-3">
+            <h5 class="title-text m-2"><i class="fa fa-globe mr-3" aria-hidden="true"></i>Country :</h5>
+          </div>
+          <div class="col-8">
+            <input class="form-control m-1" [(ngModel)]="user.country" disabled>
+          </div>
+        </div>
+        <div class="row mt-3 mb-2">
+          <div class="col-3">
+            <h5 class="title-text m-2"><i class="fa fa-child mr-3" aria-hidden="true"></i>Biography :</h5>
+          </div>
+          <div class="col-8">
+            <textarea class="form-control m-1" rows="5" [(ngModel)]="user.bio" disabled></textarea>
+          </div>
+        </div>
       </div>
-      </div>
+
+
 
 
     </div>

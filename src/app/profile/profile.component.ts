@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserServiceClient} from '../../services/user.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
+import {mkdir} from 'fs';
 
 @Component({
   selector: 'app-profile',
@@ -12,6 +13,9 @@ export class ProfileComponent implements OnInit {
 
 
   user: any;
+
+  isOwn: boolean;
+  userId: number;
 
   /*  artist = {
       userName: 'MickyMouse',
@@ -24,9 +28,10 @@ export class ProfileComponent implements OnInit {
       bio: 'Hi I am Micky Mouse. I am the cutest.'
     }*/
 
-  userName: string;
 
-  constructor(private userService: UserServiceClient, private cookieService: CookieService, private router: Router) {
+  constructor(private userService: UserServiceClient,
+              private cookieService: CookieService,
+              private router: Router, private activatedRoute: ActivatedRoute) {
   }
 
   updateUser = () => {
@@ -41,17 +46,29 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnInit() {
-    if(this.cookieService.check('isLoggedIn') && this.cookieService.get('isLoggedIn') === 'true' &&
-    this.cookieService.check('type') && this.cookieService.get('type') === 'user') {
-      this.userService.profile()
-        .then(user => {
-          this.user = user
-        })
-    }
-    else {
-      alert("Please Sign In first");
-      this.router.navigate([''])
-    }
+
+    this.activatedRoute.params.subscribe(params => {
+      this.userId = params['userId']
+      // console.log(this.userId)
+      if(this.cookieService.check('isLoggedIn') && this.cookieService.get('isLoggedIn') === 'true' &&
+        this.cookieService.check('type') && this.cookieService.get('type') === 'user') {
+        this.userService.profile()
+          .then(user => {
+            this.user = user
+            this.isOwn = true;
+          })
+      }
+      else if(this.cookieService.check('isLoggedIn') && this.cookieService.get('isLoggedIn') === 'true' &&
+        this.cookieService.check('type') && this.cookieService.get('type') === 'artist') {
+        this.isOwn = false;
+        this.userService.getProfileById(this.userId)
+          .then(user => this.user = user)
+      }
+      else {
+        alert("Please Sign In first");
+        this.router.navigate([''])
+      }
+    })
 
   }
 

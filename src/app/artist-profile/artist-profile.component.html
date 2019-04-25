@@ -102,7 +102,7 @@
     <h3 class="title-text m-2" align="center"><i class="fa fa-user-plus mr-3" aria-hidden="true"></i>My Fans</h3>
     <div *ngFor="let followingUser of followingUsers" class="col-3 m-0">
       <ul>
-        <li>{{followingUser.givenName}}</li>
+        <li [routerLink]="['/profile',followingUser.id]">{{followingUser.givenName}}</li>
       </ul>
     </div>
     <hr width="50%"/>
