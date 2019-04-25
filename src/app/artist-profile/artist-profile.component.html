@@ -103,7 +103,7 @@
     <div *ngFor="let followingUser of followingUsers" class="col-3 m-0">
 
       <ul align="center">
-        <a href="#"><li [routerLink]="['/profile',followingUser.id]">{{followingUser.givenName}}</li></a>
+        <a><li [routerLink]="['/profile', followingUser.id]">{{followingUser.givenName}}</li></a>
       </ul>
     </div>
     <hr width="50%"/>
