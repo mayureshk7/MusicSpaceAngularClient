@@ -10,12 +10,14 @@ import {UserServiceClient} from '../../services/user.service.client';
 })
 export class HeaderComponent implements OnInit {
 
-  // user: any;
+  // artist: any;
   isLoggedIn
+  type
   constructor(private router: Router, private cookieService: CookieService, private userService: UserServiceClient) { }
 
   ngOnInit() {
     this.isLoggedIn = this.cookieService.get("isLoggedIn")
+    this.type = this.cookieService.get("type")
   }
 
   goHome() {
@@ -28,9 +30,5 @@ export class HeaderComponent implements OnInit {
         this.cookieService.delete("isLoggedIn")
         this.router.navigate([''])
       })
-  }
-
-  navigateToProfile() {
-    this.router.navigate(['profile'])
   }
 }

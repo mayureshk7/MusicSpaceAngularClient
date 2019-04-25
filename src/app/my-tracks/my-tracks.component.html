@@ -1,0 +1,12 @@
+<h3>My Tracks</h3>
+<div *ngFor="let track of tracks">
+  <div class="row">
+    <div class="col-2">
+      <i class="fa fas fa-soundcloud"></i>
+    </div>
+    <div class="col-5" [routerLink]="[track.id]">{{track.trackName}}</div>
+    <div class="col-5">
+      <audio [src]="'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'"></audio>
+    </div>
+  </div>
+</div>

@@ -30,6 +30,8 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { ArtistProfileComponent } from './artist-profile/artist-profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { YTResultsComponent } from './ytresults/ytresults.component';
+import { UploadTrackComponent } from './upload-track/upload-track.component';
+import { MyTracksComponent } from './my-tracks/my-tracks.component';
 
 
 export function getAuthServiceConfigs() {
@@ -63,7 +65,9 @@ export function getAuthServiceConfigs() {
     AdminPageComponent,
     ArtistProfileComponent,
     DashboardComponent,
-    YTResultsComponent
+    YTResultsComponent,
+    UploadTrackComponent,
+    MyTracksComponent
   ],
   imports: [
     BrowserModule,

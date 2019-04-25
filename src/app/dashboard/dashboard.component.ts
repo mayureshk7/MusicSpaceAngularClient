@@ -42,7 +42,7 @@ export class DashboardComponent implements OnInit {
 
     }
     else {
-      alert("Please sign in as a user");
+      alert("Please sign in as a artist");
       this.router.navigate([''])
     }
 

@@ -36,6 +36,8 @@ export class ArtistpageComponent implements OnInit {
       this.isLoggedIn = true;
     }
     else this.isLoggedIn = false;
+
+
     this.artistService.getArtist(this.idOrMbId)
       .then(artist => {
         console.log("artists", artist)

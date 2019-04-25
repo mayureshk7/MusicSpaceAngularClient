@@ -4,20 +4,101 @@
   <div class="row">
     <!-- Profile Image and Name -->
     <div class="col-2 m-3 title-bar">
-      <img class="center mt-3 mb-3" src={{user.pictureUrl}}/>
+      <img class="center mt-3 mb-3" src="{{artist.pictureUrl}}"/>
       <hr width="50%">
-      <h4 class="title-text" align="center"><i class="fa fa-user mr-3" aria-hidden="true">  {{user.givenName}}</i></h4><!--DevGan95-->
+      <h4 class="title-text" align="center"><i class="fa fa-user mr-3" aria-hidden="true">  {{artist.name}}</i></h4><!--DevGan95-->
       <hr width="50%">
-      <h5 align="center" style="word-wrap: break-word"><i class="fa fa-envelope" aria-hidden="true"> {{user.email}}  </i></h5><!--dev95@gmail.com-->
+      <h5 align="center" style="word-wrap: break-word"><i class="fa fa-envelope" aria-hidden="true"> {{artist.email}}  </i></h5><!--dev95@gmail.com-->
       <hr width="50%">
     </div>
 
-    <div class="col-9 m-3 title-bar">
-      <h3 class = "m-2 title-text">Welcome, {{user.givenName}} !!!</h3>
+    <div class="col-7 m-3 title-bar">
+      <h3 class = "m-2 title-text">Welcome, {{artist.userName}}</h3>
       <hr width="0%">
       <hr width="50%">
       <hr width="0%">
+
+      <div class="row mt-3 mb-2">
+        <div class="col-3">
+          <h5 class="title-text m-2"><i class="fa fa-user-o mr-3" aria-hidden="true"></i>Upload a Track: </h5>
+        </div>
+        <div class="col-8">
+          <button class="btn btn-success" [routerLink]="['/profile','artists', artist.id , 'tracks', 'upload']">Upload a track</button>
+        </div>
+      </div>
+      <div class="row mt-3 mb-2">
+        <div class="col-3">
+          <h5 class="title-text m-2"><i class="fa fa-user-o mr-3" aria-hidden="true"></i>Username :</h5>
+        </div>
+        <div class="col-8">
+          <input class="form-control m-1" [(ngModel)]="artist.userName" [value]="artist.userName" disabled><!--"Devanshi"-->
+        </div>
+      </div>
+      <div class="row mt-3 mb-2">
+        <div class="col-3">
+          <h5 class="title-text m-2"><i class="fa fa-user-o mr-3" aria-hidden="true"></i>First Name :</h5>
+        </div>
+        <div class="col-8">
+          <input class="form-control m-1" [(ngModel)]="artist.givenName" [value]="artist.givenName"><!--"Devanshi"-->
+        </div>
+      </div>
+      <div class="row mt-3 mb-2">
+        <div class="col-3">
+          <h5 class="title-text m-2"><i class="fa fa-user-o mr-3" aria-hidden="true"></i>Last Name :</h5>
+        </div>
+        <div class="col-8">
+          <input class="form-control m-1" [(ngModel)]="artist.familyName" [value]="artist.familyName"><!--"Devanshi"-->
+        </div>
+      </div>
+      <div class="row mt-3 mb-2">
+        <div class="col-3">
+          <h5 class="title-text m-2"><i class="fa fa-key mr-3" aria-hidden="true"></i>Password :</h5>
+        </div>
+        <div class="col-8">
+          <input class="form-control m-1" [(ngModel)]="artist.password" type="password" [value]="artist.password"><!--"1167 Boylston"-->
+        </div>
+      </div>
+      <div class="row mt-3 mb-2">
+        <div class="col-3">
+          <h5 class="title-text m-2"><i class="fa fa-map-marker mr-3" aria-hidden="true"></i>City :</h5>
+        </div>
+        <div class="col-8 mt-2 mb-2">
+          <input class="form-control m-1" [(ngModel)]="artist.city" [value]="artist.city">
+        </div>
+      </div>
+      <div class="row mt-3 mb-2">
+        <div class="col-3">
+          <h5 class="title-text m-2"><i class="fa fa-globe mr-3" aria-hidden="true"></i>Country :</h5>
+        </div>
+        <div class="col-8">
+          <input class="form-control m-1" [(ngModel)]="artist.country" [value]="artist.country">
+        </div>
+      </div>
+      <div class="row mt-3 mb-2">
+        <div class="col-3">
+          <h5 class="title-text m-2"><i class="fa fa-child mr-3" aria-hidden="true"></i>Biography :</h5>
+        </div>
+        <div class="col-8">
+          <textarea class="form-control m-1" rows="5" [(ngModel)]="artist.bio" [name]="artist.bio"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-4 col-3 mt-3 mb-3">
+          <button (click)="deleteArtist()" class="btn btn-danger btn-block"><h5 class="title-text">Delete Profile</h5></button>
+        </div>
+
+        <div class="offset-1 col-3 mt-3 mb-3">
+          <button (click)="updateArtist()" class="btn btn-success btn-block"><h5 class="title-text">Save Changes</h5></button>
+        </div>
+      </div>
+      <hr>
+      <div class="row m-2">
+        <app-my-tracks [artistId]="artist.id"></app-my-tracks>
+      </div>
+      <hr>
+
     </div>
+
   </div>
 
 </div>

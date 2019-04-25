@@ -1,0 +1,21 @@
+<body class="bg">
+<div class="container-fluid">
+  <app-header></app-header>
+
+  <div class="offset-1 col-10 p-2 title-bar margin">
+    <h2 class="m-1" align="center"><i class="fa fa-upload"></i> Upload a track</h2>
+    <hr>
+    <h3 class="m-1"> Track Name </h3>
+    <input class="form-control m-1" type="text" [(ngModel)]="trackName">
+    <h3 class="m-1">Audio Url</h3>
+    <input class="form-control m-1" type="text" [(ngModel)]="audioUrl">
+    <h3 class="m-1">Image Url</h3>
+    <input class="form-control m-1" type="text" [(ngModel)]="imageUrl">
+    <button class="btn btn-success m-2" (click)="uploadTrack()"><i class="fa fa-upload"></i> Upload track</button>
+
+  </div>
+</div>
+</body>
+
+
+

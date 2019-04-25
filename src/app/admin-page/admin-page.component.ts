@@ -42,5 +42,11 @@ export class AdminPageComponent implements OnInit {
         .then(res => this.router.navigate(["/admin"], {})));
   }
 
+  deleteArtist(artistId) {
+    this.userService.deleteArtist(artistId)
+      .then(response => this.router.navigate(['/'], {})
+        .then(res => this.router.navigate(["/admin"], {})));
+  }
+
 
 }

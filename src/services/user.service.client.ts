@@ -3,8 +3,8 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class UserServiceClient {
 
-  // baseUrl = "http://localhost:8080"
-  baseUrl = "https://sp19-s1-project-server-java.herokuapp.com";
+  baseUrl = "http://localhost:8080"
+  // baseUrl = "https://sp19-s1-project-server-java.herokuapp.com";
 
   googlelogin = (user) => fetch(this.baseUrl + '/api/googleLogin', {
     method: 'post',
@@ -56,7 +56,7 @@ export class UserServiceClient {
     }).then(response => response.json());
   }
 
-  signup = (user) => fetch(this.baseUrl + '/api/signup/user', {
+  signup = (user) => fetch(this.baseUrl + '/api/signup/artist', {
     method: 'post',
     body: JSON.stringify(user),
     credentials: 'include',
@@ -141,6 +141,11 @@ export class UserServiceClient {
   }).then(response => response.json())
 
   deleteUser = (userId) => fetch(this.baseUrl + `/api/user/${userId}`, {
+    method: 'delete',
+    credentials: 'include'
+  }).then(response => response.json())
+
+  deleteArtist = (artistId) => fetch(this.baseUrl + `/api/artists/${artistId}`, {
     method: 'delete',
     credentials: 'include'
   }).then(response => response.json())

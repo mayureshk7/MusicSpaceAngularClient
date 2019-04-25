@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
               }
               else {
                 this.cookieService.set("isLoggedIn", 'true')
-                this.cookieService.set("type", this.type);
+                this.cookieService.set("type", 'user');
                 console.log(this.type)
                 this.router.navigate(['/home'])
               }
@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
     let creds = {userName: this.username, password: this.password}
     console.log(creds)
     if (this.type === undefined || this.type === "") {
-      alert("Please select a user role")
+      alert("Please select a artist role")
     }
     if(this.type === 'user') {
       this.userService.signInUser(creds)

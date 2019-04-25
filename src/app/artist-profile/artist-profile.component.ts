@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserServiceClient} from "../../services/user.service.client";
 import {CookieService} from "ngx-cookie-service";
 import {Router} from "@angular/router";
+import {ArtistServiceClient} from '../../services/artist.service.client';
 
 @Component({
   selector: 'app-artist-profile',
@@ -10,19 +11,22 @@ import {Router} from "@angular/router";
 })
 export class ArtistProfileComponent implements OnInit {
 
-  user: any
+  artist: any
   followingUsers: any;
 
-  constructor(private userService: UserServiceClient, private cookieService: CookieService, private router: Router) {
+  constructor(private userService: UserServiceClient,
+              private cookieService: CookieService,
+              private router: Router,
+              private artistService: ArtistServiceClient) {
   }
 
   // updateUser = () => {
   //   this.userService
-  //     .updateUserProfile(this.user)
-  //     .then(user => {
-  //       if (typeof user === "string") {
-  //         this.user = JSON.parse(user)
-  //         console.log(this.user)
+  //     .updateUserProfile(this.artist)
+  //     .then(artist => {
+  //       if (typeof artist === "string") {
+  //         this.artist = JSON.parse(artist)
+  //         console.log(this.artist)
   //       }
   //     });
   // }
@@ -32,9 +36,9 @@ export class ArtistProfileComponent implements OnInit {
     if (this.cookieService.check('isLoggedIn') && this.cookieService.get('isLoggedIn') === 'true' &&
     this.cookieService.check('type') && this.cookieService.get('type') === 'artist') {
       this.userService.getArtistProfile()
-        .then(user => {
-          this.user = user
-          alert(JSON.stringify(this.user))
+        .then(artist => {
+          this.artist = artist
+          // alert(JSON.stringify(this.artist))
         })
 
       this.userService.getFollowingUsers()
@@ -45,8 +49,24 @@ export class ArtistProfileComponent implements OnInit {
     }
     else {
       alert("Please Sign In as an Artist to access this page");
-      this.router.navigate([''])
+      this.router.navigate(['/'])
     }
+  }
+
+  updateArtist() {
+    this.artistService.updateArtist(this.artist.id, this.artist)
+      .then(artist => {
+        alert("Profile updated")
+        this.artist = artist
+      })
+  }
+
+  deleteArtist() {
+    this.userService.deleteArtist(this.artist.id)
+      .then(response => {
+        alert("Profile deleted")
+        this.router.navigate(['/'])
+      })
   }
 
 }

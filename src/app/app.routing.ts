@@ -14,11 +14,13 @@ import {ExplorePageComponent} from './explore-page/explore-page.component';
 import {AdminPageComponent} from './admin-page/admin-page.component';
 import {ArtistProfileComponent} from './artist-profile/artist-profile.component';
 import {DashboardComponent} from "./dashboard/dashboard.component";
+import {UploadTrackComponent} from './upload-track/upload-track.component';
+import {MyTracksComponent} from './my-tracks/my-tracks.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'charts', component: ChartsComponent},
-  {path: 'user', component: ProfileComponent},
+  {path: 'artist', component: ProfileComponent},
   {path: 'songs', component: SongsComponent},
   {path: 'home', component: HomeComponent},
   {path: 'search/:type', component: SearchComponent},
@@ -30,7 +32,9 @@ const routes: Routes = [
   {path: 'admin', component: AdminPageComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'fallback', component: FallbackComponent},
-  {path: 'artists/:artist/tracks/:track', component: TrackComponent}
+  {path: 'artists/:artist/tracks/:track', component: TrackComponent},
+  {path: 'profile/artists/:artistId/tracks/upload', component: UploadTrackComponent},
+  {path: 'profile/artists/:artistId/my/tracks', component: MyTracksComponent}
 ];
 
 export const AppRouting = RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'});
