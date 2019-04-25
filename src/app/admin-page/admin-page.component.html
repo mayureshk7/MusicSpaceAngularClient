@@ -60,7 +60,7 @@
           <td>{{artist.givenName ? artist.givenName : artist.name}}</td>
           <td>{{artist.lastName}}</td>
           <td>{{artist.city}}</td>
-          <td><button class="btn btn-danger">Delete</button></td>
+          <td><button class="btn btn-danger" (click)="deleteArtist(artist.id)">Delete</button></td>
         </tr>
         </tbody>
       </table>

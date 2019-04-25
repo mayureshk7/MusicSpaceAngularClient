@@ -145,6 +145,11 @@ export class UserServiceClient {
     credentials: 'include'
   }).then(response => response.json())
 
+  deleteArtist = (artistId) => fetch(this.baseUrl + `/api/artists/${artistId}`, {
+    method: 'delete',
+    credentials: 'include'
+  }).then(response => response.json())
+
   getFollowingUsers = () => fetch(this.baseUrl + `/api/artist/following/users`, {
     method: 'get',
     credentials: 'include'

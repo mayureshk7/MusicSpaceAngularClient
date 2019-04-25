@@ -12,12 +12,71 @@
       <hr width="50%">
     </div>
 
-    <div class="col-9 m-3 title-bar">
-      <h3 class = "m-2 title-text">Welcome, {{artist.name}} !!!</h3>
+    <div class="col-7 m-3 title-bar">
+      <h3 class = "m-2 title-text">Welcome, {{artist.userName}}</h3>
       <hr width="0%">
       <hr width="50%">
       <hr width="0%">
-      <button class="btn btn-primary" [routerLink]="['/profile','artists', artist.id , 'tracks', 'upload']">Upload a track</button>
+
+      <div class="row mt-3 mb-2">
+        <div class="col-3">
+          <h5 class="title-text m-2"><i class="fa fa-user-o mr-3" aria-hidden="true"></i>Upload a Track: </h5>
+        </div>
+        <div class="col-8">
+          <button class="btn btn-success" [routerLink]="['/profile','artists', artist.id , 'tracks', 'upload']">Upload a track</button>
+        </div>
+      </div>
+
+      <div class="row mt-3 mb-2">
+        <div class="col-3">
+          <h5 class="title-text m-2"><i class="fa fa-user-o mr-3" aria-hidden="true"></i>First Name :</h5>
+        </div>
+        <div class="col-8">
+          <input class="form-control m-1" [(ngModel)]="user.givenName"><!--"Devanshi"-->
+        </div>
+      </div>
+      <div class="row mt-3 mb-2">
+        <div class="col-3">
+          <h5 class="title-text m-2"><i class="fa fa-key mr-3" aria-hidden="true"></i>Password :</h5>
+        </div>
+        <div class="col-8">
+          <input class="form-control m-1" [(ngModel)]="artist.password" type="password"><!--"1167 Boylston"-->
+        </div>
+      </div>
+      <div class="row mt-3 mb-2">
+        <div class="col-3">
+          <h5 class="title-text m-2"><i class="fa fa-map-marker mr-3" aria-hidden="true"></i>City :</h5>
+        </div>
+        <div class="col-8 mt-2 mb-2">
+          <input class="form-control m-1" [(ngModel)]="artist.city">
+        </div>
+      </div>
+      <div class="row mt-3 mb-2">
+        <div class="col-3">
+          <h5 class="title-text m-2"><i class="fa fa-globe mr-3" aria-hidden="true"></i>Country :</h5>
+        </div>
+        <div class="col-8">
+          <input class="form-control m-1" [(ngModel)]="artist.country">
+        </div>
+      </div>
+      <div class="row mt-3 mb-2">
+        <div class="col-3">
+          <h5 class="title-text m-2"><i class="fa fa-child mr-3" aria-hidden="true"></i>Biography :</h5>
+        </div>
+        <div class="col-8">
+          <textarea class="form-control m-1" rows="5" [(ngModel)]="artist.bio"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-4 col-3 mt-3 mb-3">
+          <button (click)="deleteArtist(user.id)" class="btn btn-danger btn-block"><h5 class="title-text">Delete Profile</h5></button>
+        </div>
+
+        <div class="offset-1 col-3 mt-3 mb-3">
+          <button (click)="updateArtist()" class="btn btn-success btn-block"><h5 class="title-text">Save Changes</h5></button>
+        </div>
+      </div>
+
     </div>
 
   </div>
