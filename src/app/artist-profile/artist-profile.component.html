@@ -98,16 +98,20 @@
       <hr>
 
     </div>
-  <div class="col-2 m-3 title-bar">
-    <h3 class="title-text m-2" align="center"><i class="fa fa-user-plus mr-3" aria-hidden="true"></i>My Fans</h3>
-    <div *ngFor="let followingUser of followingUsers" class="col-3 m-0">
+    <div class="col-2 m-3 title-bar">
+      <div class="row">
+        <h3 class="title-text m-2" align="center"><i class="fa fa-user-plus mr-3" aria-hidden="true"></i>My Fans</h3>
+      </div>
+      <div *ngFor="let followingUser of followingUsers" class="list-group">
 
-      <ul align="center">
-        <a><li [routerLink]="['/profile', followingUser.id]">{{followingUser.givenName}}</li></a>
-      </ul>
+        <div class="list-group-item list-group-item-action list-group-item-info mt-2" [routerLink]="['/profile', followingUser.id]">
+          <h6>
+            {{followingUser.givenName}}, {{followingUser.city}}
+          </h6>
+        </div>
+      </div>
+      <!--    <hr width="50%"/>-->
     </div>
-    <hr width="50%"/>
   </div>
-</div>
 </div>
 </body>

@@ -4,7 +4,7 @@
     <div class="col-1 mt-3">
       <i class="fa fas fa-soundcloud"></i>
     </div>
-    <div class="col-3 mt-3" [routerLink]="[track.id]">{{track.trackName}}</div>
+    <div class="col-3 mt-3" [routerLink]="[track.id]"><strong>{{track.trackName}}</strong></div>
     <div class="col-6">
       <audio controls>
         <source [src]="track.audioUrl ? track.audioUrl : 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'" type="audio/mpeg">
