@@ -17,11 +17,15 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
 
-    this.activatedRoute.params.subscribe(params => this.searchType = params['type'])
-    this.activatedRoute.queryParams.subscribe(params => this.query = params['query'])
+    this.activatedRoute.queryParams.subscribe(queryParams => {
+      this.searchType = queryParams['type'];
+      this.query = queryParams['query'];
+      this.chartsService.getSearchResults(this.searchType, this.query)
+        .then(results => this.searchResults = results)
 
-    this.chartsService.getSearchResults(this.searchType, this.query)
-      .then(results => this.searchResults = results)
+    });
+
+
   }
 
   getArtist(id: any, mbid: any) {

@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'artist', component: ProfileComponent},
   {path: 'songs', component: SongsComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'search/:type', component: SearchComponent},
+  {path: 'search', component: SearchComponent},
   {path: 'explore', component: ExplorePageComponent},
   {path: 'artist/:artistId', component: ArtistpageComponent},
   {path: 'profile', component: ProfileComponent},
