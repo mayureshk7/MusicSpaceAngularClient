@@ -101,10 +101,9 @@
   <div class="col-2 m-3 title-bar">
     <h3 class="title-text m-2" align="center"><i class="fa fa-user-plus mr-3" aria-hidden="true"></i>My Fans</h3>
     <div *ngFor="let followingUser of followingUsers" class="col-3 m-0">
-      <button class="btn btn-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-      <ul align="center">
 
-        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{followingUser.givenName}}</li>
+      <ul align="center">
+        <a href="#"><li>{{followingUser.givenName}}</li></a>
       </ul>
     </div>
     <hr width="50%"/>

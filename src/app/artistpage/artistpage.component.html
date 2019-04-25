@@ -37,7 +37,8 @@
           <div *ngFor="let tag of artist.tags.tag">
             <button class="btn btn-primary btn-sm m-1"><h6>{{tag.name}}</h6></button>
           </div>
-            <div class="btn btn-primary btn-sm m-1" [routerLink]="['/artists',artist.name, 'events']"><h6>Events</h6></div>
+            <hr width="50%">
+            <div class="btn btn-warning btn-lg m-3-1" [routerLink]="['/artists',artist.name, 'events']"><h6>Events</h6></div>
           </div>
         </div>
       </div>
