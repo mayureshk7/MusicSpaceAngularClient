@@ -28,50 +28,50 @@ export class ArtistpageComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.idOrMbId = params['artistId'];
+
+      if (this.cookieService.check("isLoggedIn") && this.cookieService.get("isLoggedIn") === 'true' &&
+        this.cookieService.check("type") && this.cookieService.get("type") === "user") {
+        this.isLoggedIn = true;
+      }
+      else this.isLoggedIn = false;
+
+
+      this.artistService.getArtist(this.idOrMbId)
+        .then(artist => {
+          console.log("artists", artist)
+          this.artist=artist
+          console.log("follow unfollow", artist.is_followed)
+          this.followUnfollow = !(artist.is_followed !== undefined && artist.is_followed === true);
+          console.log(this.followUnfollow)
+        });
+
+      this.artistService.getTopAlbums(this.idOrMbId)
+        .then(albums => {
+          console.log("albums", albums)
+          this.albums = albums
+        });
+
+      this.artistService.getSimilar(this.idOrMbId)
+        .then(similarArtist => {
+          console.log("Similar", similarArtist)
+          this.similarArtist = similarArtist
+        });
     });
 
 
-    if (this.cookieService.check("isLoggedIn") && this.cookieService.get("isLoggedIn") === 'true' &&
-      this.cookieService.check("type") && this.cookieService.get("type") === "user") {
-      this.isLoggedIn = true;
-    }
-    else this.isLoggedIn = false;
 
-
-    this.artistService.getArtist(this.idOrMbId)
-      .then(artist => {
-        console.log("artists", artist)
-        this.artist=artist
-        console.log("follow unfollow", artist.is_followed)
-        this.followUnfollow = !(artist.is_followed !== undefined && artist.is_followed === true);
-        console.log(this.followUnfollow)
-      });
-
-    this.artistService.getTopAlbums(this.idOrMbId)
-      .then(albums => {
-        console.log("albums", albums)
-        this.albums = albums
-      });
-
-    this.artistService.getSimilar(this.idOrMbId)
-      .then(similarArtist => {
-        console.log("Similar", similarArtist)
-        this.similarArtist = similarArtist
-      });
   }
 
   getArtist(id: any, mbid: any) {
 
     if(id !== undefined && id !== "" && id !== 0) {
-      this.router.navigate([''])
-        .then( resp => this.router.navigate(['artist', id]));
+      this.router.navigate(['artist', id])
     }
     else if(mbid === undefined || mbid === "") {
       this.router.navigate(['fallback'])
     }
     else {
-      this.router.navigate([''])
-        .then( resp => this.router.navigate(['artist', mbid]));
+      this.router.navigate(['artist', mbid]);
     }
 
   }
