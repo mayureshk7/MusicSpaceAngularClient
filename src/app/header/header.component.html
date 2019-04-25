@@ -5,25 +5,71 @@
   </div>
 
   <div class="col-6" [ngSwitch]="isLoggedIn">
-    <div *ngSwitchCase="'true'">
-      <div class="row" >
-        <div class=" row offset-3 col-9">
-          <button class="btn m-1 " (click)="goHome()"><i class="fa fa-home" aria-hidden="true"></i>  Home</button>
-          <div class="vl"></div>
-          <button class="btn  m-1" [routerLink]="['/dashboard']"><i class="fa fa-dashboard" aria-hidden="true"></i>  Dashboard</button>
-          <div class="vl"></div>
-          <button class="btn m-1" [routerLink]="['/profile']"><i class="fa fa-user" aria-hidden="true"></i>  Profile</button>
-          <div class="vl"></div>
-          <button class="btn m-1" [routerLink]="['/explore']"><i class="fa fa-space-shuttle" aria-hidden="true"></i>  Explore</button>
-          <div class="vl"></div>
-          <button class="btn m-1" (click)="logoutUser()"><i class="fa fa-sign-out fa-lg"></i> </button>
+
+    <div *ngIf="type === 'user'">
+      <div *ngSwitchCase="'true'">
+        <div class="row" >
+          <div class=" row offset-3 col-9">
+            <button class="btn m-1 " (click)="goHome()"><i class="fa fa-home" aria-hidden="true"></i>  Home</button>
+            <div class="vl"></div>
+            <button class="btn  m-1" [routerLink]="['/dashboard']"><i class="fa fa-dashboard" aria-hidden="true"></i>  Dashboard</button>
+            <div class="vl"></div>
+            <button class="btn m-1" [routerLink]="['/profile']"><i class="fa fa-user" aria-hidden="true"></i>  Profile</button>
+            <div class="vl"></div>
+            <button class="btn m-1" [routerLink]="['/explore']"><i class="fa fa-space-shuttle" aria-hidden="true"></i>  Explore</button>
+            <div class="vl"></div>
+            <button class="btn m-1" (click)="logoutUser()"><i class="fa fa-sign-out fa-lg"></i> </button>
+          </div>
         </div>
       </div>
     </div>
 
+    <div *ngIf="type === 'artist'">
+      <div *ngSwitchCase="'true'">
+        <div class="row" >
+          <div class=" row offset-3 col-9">
+            <button class="btn m-1 " (click)="goHome()"><i class="fa fa-home" aria-hidden="true"></i>  Home</button>
+            <div class="vl"></div>
+<!--            <button class="btn  m-1" [routerLink]="['/dashboard']"><i class="fa fa-dashboard" aria-hidden="true"></i>  Dashboard</button>-->
+<!--            <div class="vl"></div>-->
+            <button class="btn m-1" [routerLink]="['/profile','artist']"><i class="fa fa-user" aria-hidden="true"></i>  Profile</button>
+            <div class="vl"></div>
+            <button class="btn m-1" [routerLink]="['/explore']"><i class="fa fa-space-shuttle" aria-hidden="true"></i>  Explore</button>
+            <div class="vl"></div>
+            <button class="btn m-1" (click)="logoutUser()"><i class="fa fa-sign-out fa-lg"></i> </button>
+          </div>
+        </div>
+      </div>
 
-    <div  class="offset-8 col-2" *ngSwitchDefault>
-      <div class="btn btn-primary btn-block" [routerLink]="['/']">Sign In</div>
+    </div>
+
+    <div *ngIf="type === 'admin'">
+      <div *ngSwitchCase="'true'">
+        <div class="row" >
+          <div class=" row offset-3 col-9">
+            <button class="btn m-1 " (click)="goHome()"><i class="fa fa-home" aria-hidden="true"></i>  Home</button>
+            <div class="vl"></div>
+            <button class="btn  m-1" [routerLink]="['/admin']"><i class="fa fa-dashboard" aria-hidden="true"></i>  Dashboard</button>
+            <div class="vl"></div>
+<!--            <button class="btn m-1" [routerLink]="['/profile','artist']"><i class="fa fa-user" aria-hidden="true"></i>  Profile</button>-->
+<!--            <div class="vl"></div>-->
+            <button class="btn m-1" [routerLink]="['/explore']"><i class="fa fa-space-shuttle" aria-hidden="true"></i>  Explore</button>
+            <div class="vl"></div>
+            <button class="btn m-1" (click)="logoutUser()"><i class="fa fa-sign-out fa-lg"></i> </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div  class="row" *ngSwitchDefault>
+      <div class="offset-4 col-md-2">
+        <button class="btn m-1" [routerLink]="['/explore']"><i class="fa fa-space-shuttle" aria-hidden="true"></i>  Explore</button>
+      </div>
+      <div class="col-2 mt-3">
+        <div class="btn btn-primary btn-block" [routerLink]="['/']">Sign In</div>
+      </div>
+
     </div>
 
 

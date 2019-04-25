@@ -26,13 +26,28 @@
           <button class="btn btn-success" [routerLink]="['/profile','artists', artist.id , 'tracks', 'upload']">Upload a track</button>
         </div>
       </div>
-
+      <div class="row mt-3 mb-2">
+        <div class="col-3">
+          <h5 class="title-text m-2"><i class="fa fa-user-o mr-3" aria-hidden="true"></i>Username :</h5>
+        </div>
+        <div class="col-8">
+          <input class="form-control m-1" [(ngModel)]="artist.userName" [value]="artist.userName" disabled><!--"Devanshi"-->
+        </div>
+      </div>
       <div class="row mt-3 mb-2">
         <div class="col-3">
           <h5 class="title-text m-2"><i class="fa fa-user-o mr-3" aria-hidden="true"></i>First Name :</h5>
         </div>
         <div class="col-8">
-          <input class="form-control m-1" [(ngModel)]="user.givenName"><!--"Devanshi"-->
+          <input class="form-control m-1" [(ngModel)]="artist.givenName" [value]="artist.givenName"><!--"Devanshi"-->
+        </div>
+      </div>
+      <div class="row mt-3 mb-2">
+        <div class="col-3">
+          <h5 class="title-text m-2"><i class="fa fa-user-o mr-3" aria-hidden="true"></i>Last Name :</h5>
+        </div>
+        <div class="col-8">
+          <input class="form-control m-1" [(ngModel)]="artist.familyName" [value]="artist.familyName"><!--"Devanshi"-->
         </div>
       </div>
       <div class="row mt-3 mb-2">
@@ -40,7 +55,7 @@
           <h5 class="title-text m-2"><i class="fa fa-key mr-3" aria-hidden="true"></i>Password :</h5>
         </div>
         <div class="col-8">
-          <input class="form-control m-1" [(ngModel)]="artist.password" type="password"><!--"1167 Boylston"-->
+          <input class="form-control m-1" [(ngModel)]="artist.password" type="password" [value]="artist.password"><!--"1167 Boylston"-->
         </div>
       </div>
       <div class="row mt-3 mb-2">
@@ -48,7 +63,7 @@
           <h5 class="title-text m-2"><i class="fa fa-map-marker mr-3" aria-hidden="true"></i>City :</h5>
         </div>
         <div class="col-8 mt-2 mb-2">
-          <input class="form-control m-1" [(ngModel)]="artist.city">
+          <input class="form-control m-1" [(ngModel)]="artist.city" [value]="artist.city">
         </div>
       </div>
       <div class="row mt-3 mb-2">
@@ -56,7 +71,7 @@
           <h5 class="title-text m-2"><i class="fa fa-globe mr-3" aria-hidden="true"></i>Country :</h5>
         </div>
         <div class="col-8">
-          <input class="form-control m-1" [(ngModel)]="artist.country">
+          <input class="form-control m-1" [(ngModel)]="artist.country" [value]="artist.country">
         </div>
       </div>
       <div class="row mt-3 mb-2">
@@ -64,7 +79,7 @@
           <h5 class="title-text m-2"><i class="fa fa-child mr-3" aria-hidden="true"></i>Biography :</h5>
         </div>
         <div class="col-8">
-          <textarea class="form-control m-1" rows="5" [(ngModel)]="artist.bio"></textarea>
+          <textarea class="form-control m-1" rows="5" [(ngModel)]="artist.bio" [name]="artist.bio"></textarea>
         </div>
       </div>
       <div class="row">

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserServiceClient} from "../../services/user.service.client";
 import {CookieService} from "ngx-cookie-service";
 import {Router} from "@angular/router";
+import {ArtistServiceClient} from '../../services/artist.service.client';
 
 @Component({
   selector: 'app-artist-profile',
@@ -13,7 +14,10 @@ export class ArtistProfileComponent implements OnInit {
   artist: any
   followingUsers: any;
 
-  constructor(private userService: UserServiceClient, private cookieService: CookieService, private router: Router) {
+  constructor(private userService: UserServiceClient,
+              private cookieService: CookieService,
+              private router: Router,
+              private artistService: ArtistServiceClient) {
   }
 
   // updateUser = () => {
@@ -49,4 +53,11 @@ export class ArtistProfileComponent implements OnInit {
     }
   }
 
+  updateArtist() {
+    this.artistService.updateArtist(this.artist.id, this.artist)
+      .then(artist => {
+        alert("Profile updated")
+        this.artist = artist
+      })
+  }
 }

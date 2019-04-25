@@ -12,10 +12,12 @@ export class HeaderComponent implements OnInit {
 
   // artist: any;
   isLoggedIn
+  type
   constructor(private router: Router, private cookieService: CookieService, private userService: UserServiceClient) { }
 
   ngOnInit() {
     this.isLoggedIn = this.cookieService.get("isLoggedIn")
+    this.type = this.cookieService.get("type")
   }
 
   goHome() {
