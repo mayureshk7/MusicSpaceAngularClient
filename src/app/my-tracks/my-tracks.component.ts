@@ -25,4 +25,13 @@ export class MyTracksComponent implements OnInit {
       })
   }
 
+  deleteTrack(trackId) {
+    this.trackService.deleteTrackById(trackId)
+      .then(response => {
+        alert("Track deleted successfully")
+        this.router.navigate(['/profile','artists', this.artistId, 'tracks', 'upload'])
+          .then(res => this.router.navigate(['/profile' , 'artist', 'edit']))
+
+      })
+  }
 }

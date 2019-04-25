@@ -63,6 +63,12 @@ export class TrackServiceClient {
     method: 'get',
     credentials: 'include'
   }).then(response => response.json())
+
+  deleteTrackById = (trackId) => fetch(this.baseUrl + `/api/my/tracks/${trackId}`, {
+    method: 'delete',
+    credentials: 'include'
+  }).then(response => response.json())
+
 }
 
 

@@ -1,12 +1,18 @@
 <h3>My Tracks</h3>
 <div *ngFor="let track of tracks">
   <div class="row">
-    <div class="col-2">
+    <div class="col-1 mt-3">
       <i class="fa fas fa-soundcloud"></i>
     </div>
-    <div class="col-5" [routerLink]="[track.id]">{{track.trackName}}</div>
-    <div class="col-5">
-      <audio [src]="'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'"></audio>
+    <div class="col-3 mt-3" [routerLink]="[track.id]">{{track.trackName}}</div>
+    <div class="col-6">
+      <audio controls>
+        <source [src]="track.audioUrl ? track.audioUrl : 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'" type="audio/mpeg">
+      </audio>
+<!--      <audio [src]="'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'"></audio>-->
+    </div>
+    <div class="col-2 float-right mt-2">
+      <button class="btn btn-danger btn-sm" (click)="deleteTrack(track.id)">Delete</button>
     </div>
   </div>
 </div>
