@@ -60,4 +60,13 @@ export class ArtistProfileComponent implements OnInit {
         this.artist = artist
       })
   }
+
+  deleteArtist() {
+    this.userService.deleteArtist(this.artist.id)
+      .then(response => {
+        alert("Profile deleted")
+        this.router.navigate(['/'])
+      })
+  }
+
 }

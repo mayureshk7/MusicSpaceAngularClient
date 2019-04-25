@@ -32,10 +32,12 @@ export class ArtistpageComponent implements OnInit {
 
 
     if (this.cookieService.check("isLoggedIn") && this.cookieService.get("isLoggedIn") === 'true' &&
-      this.cookieService.check("type") && this.cookieService.get("type") === "artist") {
+      this.cookieService.check("type") && this.cookieService.get("type") === "user") {
       this.isLoggedIn = true;
     }
     else this.isLoggedIn = false;
+
+
     this.artistService.getArtist(this.idOrMbId)
       .then(artist => {
         console.log("artists", artist)

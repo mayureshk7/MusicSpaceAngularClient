@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
               }
               else {
                 this.cookieService.set("isLoggedIn", 'true')
-                this.cookieService.set("type", this.type);
+                this.cookieService.set("type", 'user');
                 console.log(this.type)
                 this.router.navigate(['/home'])
               }
