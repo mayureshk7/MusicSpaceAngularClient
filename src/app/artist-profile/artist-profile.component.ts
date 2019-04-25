@@ -49,7 +49,7 @@ export class ArtistProfileComponent implements OnInit {
     }
     else {
       alert("Please Sign In as an Artist to access this page");
-      this.router.navigate([''])
+      this.router.navigate(['/'])
     }
   }
 

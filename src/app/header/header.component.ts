@@ -31,8 +31,4 @@ export class HeaderComponent implements OnInit {
         this.router.navigate([''])
       })
   }
-
-  navigateToProfile() {
-    this.router.navigate(['profile'])
-  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TrackServiceClient} from '../../services/track.service.client';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-upload-track',
@@ -14,13 +15,19 @@ export class UploadTrackComponent implements OnInit {
   audioUrl: string;
   imageUrl: string;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private trackService: TrackServiceClient) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute,
+              private trackService: TrackServiceClient, private cookieService: CookieService) {
   }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.artistId = params['artistId'];
     });
+
+    if (this.cookieService.check("type") && this.cookieService.get("type") !== 'artist') {
+      alert("Page restricted to artists")
+      this.router.navigate(['/'])
+    }
   }
 
   uploadTrack() {
