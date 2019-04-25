@@ -45,7 +45,7 @@ export class ArtistProfileComponent implements OnInit {
         .then(users => {
           console.log(users)
           this.followingUsers = users
-        })
+        });
     }
     else {
       alert("Please Sign In as an Artist to access this page");
