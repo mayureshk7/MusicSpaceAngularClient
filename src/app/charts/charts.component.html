@@ -1,10 +1,10 @@
   <div class="card-deck">
-    <div *ngFor="let artist of artists" class="col-3 m-0">
+    <div *ngFor="let artist of artists" class="col-sm-6 col-md-4 m-0">
       <div class="card m-2">
         <img class="card-img-top img-fluid artistImage" src="{{artist.largeImage}}" alt="Card image cap">
         <div class="card-body" style="height: auto">
           <div class="row">
-            <div class="col-9">
+            <div class="col-sm-9 col-md-9">
             <h5 class="card-title">{{artist.name}}</h5>
             </div>
             <div class="col-2">
