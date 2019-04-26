@@ -1,0 +1,8 @@
+.try {
+  flex: 1;
+  margin: 0 auto;
+  overflow-wrap: break-word;
+  justify-content: left;
+  display: flex;
+  offset: auto;
+}
