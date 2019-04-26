@@ -12,11 +12,11 @@
         <div *ngSwitchCase="'true'">
           <div class="row">
             <div class="col-2">
+
             </div>
             <div class="col-2">
               <button class="btn d-none d-md-block " (click)="goHome()"><i class="fa fa-home" aria-hidden="true"></i>  Home</button>
-              <div class="vl"></div>
-
+<!--              <div class="vl"></div>-->
             </div>
             <div class="col-2">
 
@@ -30,8 +30,8 @@
             <div class="col-2">
               <button class="btn d-none d-md-block" [routerLink]="['/explore']"><i class="fa fa-space-shuttle" aria-hidden="true"></i>  Explore</button>
             </div>
-            <div class="col-2">
-              <button class="btn d-none d-md-block" (click)="logoutUser()"><i class="fa fa-sign-out fa-lg"></i> </button>
+            <div class="col-2 col-xs-12">
+              <button class="btn" (click)="logoutUser()"><i class="fa fa-sign-out fa-lg"></i> </button>
             </div>
 
           </div>
