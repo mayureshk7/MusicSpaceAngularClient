@@ -2,12 +2,12 @@
 <div class="container-fluid">
   <app-header></app-header>
 
-  <div class="offset-1 col-10 mt-3 mb-3 title-bar">
+  <div class="offset-1 col-md-10 mt-3 mb-3 title-bar">
     <div class="row">
-      <div class="col-3 m-2">
+      <div class="col-md-3 m-2">
         <img class="artistImage" src="{{artist.image[2]['#text']}}">
       </div>
-      <div class="col-5 m-2 mt-3">
+      <div class="col-md-5 m-2 mt-3">
         <h1>{{artist.name}}</h1>
         <hr width="50%">
         <h3><i class="fa fa-users" aria-hidden="true"> Followers: {{artist.stats.listeners}}</i></h3>
@@ -47,7 +47,7 @@
 
 
 
-  <div class="offset-1 pt-2 col-10 mt-3 mb-3 title-bar">
+  <div class="offset-1 pt-2 col-md-10 mt-3 mb-3 title-bar">
     <h3 >About {{artist.name}}</h3>
     <hr>
     <h5>{{artist.bio.summary}}</h5>
@@ -59,7 +59,7 @@
     <hr>
     <h3>Similar to {{artist.name}}</h3>
     <div class="card-deck m-2 deckBg">
-      <div *ngFor="let artist of similarArtist" class="col-2 m-0">
+      <div *ngFor="let artist of similarArtist" class="col-md-2 m-0">
         <div class="card m-2">
           <img class="card-img-top img-fluid artistImage" src="{{artist.image[2]['#text']}}" alt="Card image cap">
           <div class="card-body" style="height: auto">
@@ -70,7 +70,7 @@
     </div>
     <h3>{{artist.name}} Albums</h3>
     <div class="card-deck m-2 deckBg">
-      <div *ngFor="let album of albums" class="col-3 m-0">
+      <div *ngFor="let album of albums" class="col-md-3 m-0">
         <div class="card m-2">
           <img class="card-img-top img-fluid artistImage" src="{{album.image[2]['#text']}}" alt="Card image cap">
           <div class="card-body" style="height: auto">
