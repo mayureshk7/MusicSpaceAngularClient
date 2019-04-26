@@ -19,11 +19,11 @@ import {MyTracksComponent} from './my-tracks/my-tracks.component';
 import {EventsComponent} from './events/events.component';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'charts', component: ChartsComponent},
   {path: 'artist', component: ProfileComponent},
   {path: 'songs', component: SongsComponent},
-  {path: 'home', component: HomeComponent},
+  {path: '', component: HomeComponent},
   {path: 'search', component: SearchComponent},
   {path: 'explore', component: ExplorePageComponent},
   {path: 'artist/:artistId', component: ArtistpageComponent},

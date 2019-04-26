@@ -6,7 +6,7 @@
     </div>
     <div class="mt-3 mb-4">
       <h1 class="title-text" align="center">Join</h1>
-      <h1 class="title-text" align="center">Record Space</h1>
+      <h1 class="title-text" align="center" [routerLink]="['/']">Record Space</h1>
       <h6 class="title-text" align="center">Watch Videos Anytime, Anywhere.</h6>
     </div>
     <hr width="50%">
@@ -33,7 +33,7 @@
         </div>
         <button (click)="createUser()" class="btn btn-success btn-block mt-3 title-text">Create my account</button>
         <hr width="50%">
-        <label align="center" class="form-check-label title-text ml-2 d-flex justify-content-center" >Already have an account? <a href="/"> &nbsp; Log in.</a></label>
+        <label align="center" class="form-check-label title-text ml-2 d-flex justify-content-center" >Already have an account? <a [routerLink]="['/login']"> &nbsp; Log in.</a></label>
       </div>
     </div>
   </div>
