@@ -58,3 +58,11 @@ body {
   87%  {  background-image: url(https://images.pexels.com/photos/196652/pexels-photo-196652.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);}
   100%  {  background-image: url(https://images.pexels.com/photos/976866/pexels-photo-976866.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);}
 }
+.try {
+  flex: 1;
+  margin: 0 auto;
+  overflow-wrap: break-word;
+  justify-content: left;
+  display: flex;
+  offset: auto;
+}
