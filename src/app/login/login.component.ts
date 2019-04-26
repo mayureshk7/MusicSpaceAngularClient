@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
                 this.cookieService.set("isLoggedIn", 'true')
                 this.cookieService.set("type", 'user');
                 console.log(this.type)
-                this.router.navigate(['/home'])
+                this.router.navigate(['/'])
               }
             })
         }
@@ -73,8 +73,13 @@ export class LoginComponent implements OnInit {
         .then(user => {
           if(user.id !== undefined && user.id !== 0) {
             this.cookieService.set("isLoggedIn", 'true')
+<<<<<<< Updated upstream
             this.cookieService.set("type", this.type);
             this.router.navigate(["/home"])
+=======
+            this.cookieService.set("type", 'user');
+            this.router.navigate(["/"])
+>>>>>>> Stashed changes
           }
           else {
             alert("Incorrect credentials, please try again!")

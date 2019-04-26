@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
             if (user.id !== undefined && user.id !== 0) {
               this.cookieService.set("isLoggedIn", 'true');
               this.cookieService.set("type", 'user');
-              this.router.navigate(["/home"])
+              this.router.navigate(["/"])
             }
             else {
               alert("Username in use, try a different one")
