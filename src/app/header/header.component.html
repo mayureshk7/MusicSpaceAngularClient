@@ -6,31 +6,43 @@
     </div>
   </div>
 
-  <div class="col-8 float-right">
+  <div class="col-8 ">
     <div [ngSwitch]="isLoggedIn">
       <div *ngIf="type === 'user'">
         <div *ngSwitchCase="'true'">
           <div class="row">
             <div class="col-2">
+            </div>
+            <div class="col-2">
+              <button class="btn " (click)="goHome()"><i class="fa fa-home" aria-hidden="true"></i>
+                <div class="d-none d-md-block ">
+                  Home
+                </div>
+              </button>
+            </div>
+            <div class="col-2">
+              <button class="btn" [routerLink]="['/dashboard']"><i class="fa fa-dashboard" aria-hidden="true"></i>
+                <div class="d-none d-md-block ">
+                  Dashboard
+                </div>
+              </button>
 
             </div>
             <div class="col-2">
-              <button class="btn d-none d-md-block " (click)="goHome()"><i class="fa fa-home" aria-hidden="true"></i>  Home</button>
-<!--              <div class="vl"></div>-->
+              <button class="btn" [routerLink]="['/profile']"><i class="fa fa-user" aria-hidden="true"></i>
+                <div class="d-none d-md-block">
+                  Profile
+                </div>
+              </button>
             </div>
             <div class="col-2">
-
-              <button class="btn d-none d-md-block" [routerLink]="['/dashboard']"><i class="fa fa-dashboard" aria-hidden="true"></i>  Dashboard</button>
-
+              <button class="btn" [routerLink]="['/explore']"><i class="fa fa-space-shuttle" aria-hidden="true"></i>
+                <div class="d-none d-md-block">
+                  Explore
+                </div>
+              </button>
             </div>
             <div class="col-2">
-              <button class="btn d-none d-md-block" [routerLink]="['/profile']"><i class="fa fa-user" aria-hidden="true"></i>  Profile</button>
-
-            </div>
-            <div class="col-2">
-              <button class="btn d-none d-md-block" [routerLink]="['/explore']"><i class="fa fa-space-shuttle" aria-hidden="true"></i>  Explore</button>
-            </div>
-            <div class="col-2 col-xs-12">
               <button class="btn" (click)="logoutUser()"><i class="fa fa-sign-out fa-lg"></i> </button>
             </div>
 
@@ -47,17 +59,24 @@
 
             </div>
             <div class="col-2">
-              <button class="btn d-none d-md-block " (click)="goHome()"><i class="fa fa-home" aria-hidden="true"></i>  Home</button>
+              <button class="btn " (click)="goHome()"><i class="fa fa-home" aria-hidden="true"></i>
+                <div class="d-none d-md-block">Home</div>
+              </button>
             </div>
             <div class="col-2">
-              <button class="btn m-1 d-none d-md-block" [routerLink]="['/profile','artist','edit']"><i class="fa fa-user" aria-hidden="true"></i>  Profile</button>
+              <button class="btn " [routerLink]="['/profile','artist','edit']"><i class="fa fa-user" aria-hidden="true"></i>
+                <div class="d-none d-md-block">Profile</div>
+              </button>
 
             </div>
             <div class="col-2">
-              <button class="btn d-none d-md-block" [routerLink]="['/explore']"><i class="fa fa-space-shuttle" aria-hidden="true"></i>  Explore</button>
+              <button class="btn " [routerLink]="['/explore']">
+                <i class="fa fa-space-shuttle" aria-hidden="true"></i>
+                <div class="d-none d-md-block">Explore</div>
+              </button>
             </div>
-            <div class="col-2">
-              <button class="btn d-none d-md-block" (click)="logoutUser()"><i class="fa fa-sign-out fa-lg"></i> </button>
+            <div class="col-2 col-xs-4">
+              <button class="btn " (click)="logoutUser()"><i class="fa fa-sign-out fa-lg"></i> </button>
             </div>
 
           </div>
@@ -72,17 +91,25 @@
             </div>
             <div class="col-2">
             </div>
-            <div class="col-2 col-sm-0">
-              <button class="btn d-none d-md-block " (click)="goHome()"><i class="fa fa-home" aria-hidden="true"></i>  Home</button>
-            </div>
-            <div class="col-2 col-sm-0">
-              <button class="btn d-none d-md-block" [routerLink]="['/admin']"><i class="fa fa-dashboard" aria-hidden="true"></i>  Dashboard</button>
-            </div>
-            <div class="col-2 col-sm-0">
-              <button class="btn d-none d-md-block" [routerLink]="['/explore']"><i class="fa fa-space-shuttle" aria-hidden="true"></i>  Explore</button>
+            <div class="col-2">
+              <button class="btn " (click)="goHome()"><i class="fa fa-home" aria-hidden="true"></i>
+                <div class="d-none d-md-block ">
+                  Home
+                </div>
+              </button>
             </div>
             <div class="col-2">
-              <button class="btn d-none d-md-block" (click)="logoutUser()"><i class="fa fa-sign-out fa-lg"></i> </button>
+              <button class="btn " [routerLink]="['/admin']"><i class="fa fa-dashboard" aria-hidden="true"></i>
+                <div class="d-none d-md-block">Dashboard</div>
+              </button>
+            </div>
+            <div class="col-2">
+              <button class="btn" [routerLink]="['/explore']"><i class="fa fa-space-shuttle" aria-hidden="true"></i>
+                <div class="d-none d-md-block">Explore</div>
+              </button>
+            </div>
+            <div class="col-2">
+              <button class="btn" (click)="logoutUser()"><i class="fa fa-sign-out fa-lg"></i> </button>
             </div>
 
           </div>
