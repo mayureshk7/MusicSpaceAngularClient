@@ -1,5 +1,5 @@
 <body class="bg">
-<div class="row container-fluid">
+<div class="container-fluid">
   <app-header></app-header>
   <app-search-bar></app-search-bar>
 
@@ -24,14 +24,15 @@
     </div>
     <div *ngSwitchCase="'artists'">
       <h2 class="mt-3 mb-3 pt-3 p-2"><i class="fa fa-user" aria-hidden="true"></i> Search Results for {{query}}</h2>
+
       <div class="card-deck m-2 scrollable">
-        <div *ngFor="let artist of searchResults" class="col-6 m-0">
+        <div *ngFor="let artist of searchResults" class="col-md-6 col-sm-12">
           <div class="card m-2 p-2" (click)="getArtist(artist.id, artist.mbid)">
             <div class="row">
-              <div class="col-4">
+              <div class="col-md-4">
                 <img class="card-img-top img-fluid artistImage" src="{{artist.largeImage}}" alt="No image available">
               </div>
-              <div class="col-6 m-2">
+              <div class="col-md-6">
                 <h4>{{artist.name}}</h4>
                 <h4><i class="fa fa-users" aria-hidden="true"> Followers: {{artist.listeners}}</i></h4>
               </div>
