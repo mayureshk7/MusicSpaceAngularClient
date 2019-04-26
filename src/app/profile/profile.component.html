@@ -12,12 +12,11 @@
       <hr width="50%">
       <div *ngIf="isOwn">
         <ul align="center" class="title-text">
-          <li align="center"><a href="#news"><h5>Home</h5></a></li>
-          <li align="center"><a href="#news"><h5>Dashboard</h5></a></li>
-          <li align="center"><a href="#news"><h5>Profile</h5></a></li>
-          <li align="center"><a href="#contact"><h5>Calender</h5></a></li>
-          <li align="center"><a href="#about"><h5>Contact Us</h5></a></li>
-          <li align="center"><a href="#about"><h5>About</h5></a></li>
+          <li align="center"><a [routerLink]="['/home']"><h5>Home</h5></a></li>
+          <li align="center"><a [routerLink]="['/dashboard']"><h5>Dashboard</h5></a></li>
+          <li align="center"><a ><h5>Calender</h5></a></li>
+          <li align="center"><a ><h5>Contact Us</h5></a></li>
+          <li align="center"><a ><h5>About</h5></a></li>
         </ul>
       </div>
 

@@ -2,12 +2,12 @@
 <div class="container-fluid">
   <app-header></app-header>
 
-  <div class="offset-1 col-10 mt-3 mb-3 title-bar">
+  <div class="offset-md-1 offset-md-md-10 mt-3 mb-3 title-bar">
     <div class="row">
-      <div class="col-3 m-2">
+      <div class="col-md-3 m-2">
         <img class="artistImage" src="{{track.album && track.album.image[2] ? track.album.image[2]['#text'] : ''}}" alt="Not Found">
       </div>
-      <div class="col-5 m-2 mt-3">
+      <div class="col-md-5 m-2 mt-3">
         <h1>{{track.name}}</h1>
         <h3>{{track.album && track.album.artist ? track.album.artist : "Single Hit"}}</h3>
         <h3>{{track.album.title}}</h3>
@@ -36,7 +36,7 @@
     </div>
   </div>
 
-  <div class="offset-1 pt-2 col-10 mt-3 mb-3 title-bar">
+  <div class="offset-md-1 pt-2 col-md-10 mt-3 mb-3 title-bar">
     <h3 >About {{track.name}}</h3>
     <hr>
     <h5>{{track.wiki.content}}</h5>

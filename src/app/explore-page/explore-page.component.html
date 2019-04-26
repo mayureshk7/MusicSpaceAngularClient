@@ -2,20 +2,20 @@
 <div class="container-fluid">
   <app-header></app-header>
   <div class="margin">
-    <div class="offset-1 col-10 mt-3 mb-3 title-bar">
+    <div class="offset-md-1 col-md-10 mt-3 mb-3 title-bar">
 
-      <div class="row col-10 offset-1 pt-2 pr-2 pl-2 pb-2">
+      <div class="row col-md-10 offset-md-1 pt-2 pr-2 pl-2 pb-2">
         <h3 class="m-3">Lose yourself in the Space and Listen to Music...</h3>
-        <div class="col-8" >
+        <div class="col-md-8" >
           <input [(ngModel)]="query" class="form-control" placeholder="Search">
         </div>
-        <div class="col-2">
+        <div class="col-md-2">
           <select class="browser-default custom-select" [(ngModel)]="type" [value]="type">
             <option value="artists">Artists</option>
             <option value="tracks">Tracks</option>
           </select>
         </div>
-        <div class="col-2">
+        <div class="col-md-2">
           <button class="btn btn-success btn-block" (click)='search()'><i class="fa fa-search"></i> Search</button>
         </div>
         <hr width="0%">
