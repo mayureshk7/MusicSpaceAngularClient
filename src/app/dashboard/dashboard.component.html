@@ -4,14 +4,14 @@
 
   <app-search-bar></app-search-bar>
 
-  <div class="offset-1 col-10 mt-3 mb-3 title-bar">
+  <div class="offset-1 col-md-10 mt-3 mb-3 title-bar">
     <hr width="0%">
     <h2 class="m-2">Welcome, {{user.givenName}} !!! </h2>
     <hr>
     <h3 class="m-2">Artists You follow</h3>
     <hr>
     <div class="card-deck m-2 deckBg">
-      <div class="col-4" *ngFor="let artist of followedArtists" class="col-3 m-0">
+      <div class="col-md-4" *ngFor="let artist of followedArtists" class="col-md-3 m-0">
         <div class="card m-2">
           <img class="card-img-top img-fluid artistImage" src="{{artist.largeImage}}" alt="Card image cap">
           <div class="card-body" style="height: auto">
@@ -24,7 +24,7 @@
     <h3 class="m-2">Tracks you like</h3>
     <hr>
     <div class="card-deck m-2 deckBg">
-      <div class="col-4" *ngFor="let track of likedSongs" class="col-3 m-0">
+      <div class="col-md-4" *ngFor="let track of likedSongs" class="col-md-3 m-0">
         <div class="card m-2">
           <img class="card-img-top img-fluid artistImage" src="https://i.pinimg.com/originals/b3/ed/8d/b3ed8d773439c086d52b7b0d1147fda3.jpg" alt="Card image cap">
           <div class="card-body" style="height: auto">
